@@ -1,11 +1,10 @@
-import React from "react";
+import logo from "../../logo.svg";
 
 let Header = () => {
     return (
         <div>
-            <a href="#s">rofl1</a>
-            <a href="#s">rofl2</a>
-            <a href="#s">rofl3</a>
+            <img className="App-logo" src={logo} alt=""/>
+            Хихихаха
         </div>
     )
 }
