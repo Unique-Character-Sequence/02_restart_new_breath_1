@@ -1,19 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
 import React from "react";
+import Header from "./Components/Header/Header";
+
 
 const App = () => {
     return (
         <div className="App">
             <Header/>
             А шо за текст тут у нас, гиги-гага
-            <ListOfThoughts/>
+            <ListOfThoughtsComponent/>
             <img className="App-logo" src={logo} alt=""/>
         </div>
     )
 }
 
-let ListOfThoughts = () => {
+let ListOfThoughtsComponent = () => {
     return <div> {/* Видал прикол, можно и в скобочки не брать в такой ситуации*/}
         <ul>
             <li>Итак, братан</li>
@@ -25,16 +27,6 @@ let ListOfThoughts = () => {
         </ul>
     </div>
 
-}
-
-let Header = () => {
-    return (
-        <div>
-            <a href="#s">rofl1</a>
-            <a href="#s">rofl2</a>
-            <a href="#s">rofl3</a>
-        </div>
-    )
 }
 
 export default App;
