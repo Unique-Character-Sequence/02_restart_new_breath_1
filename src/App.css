@@ -1,43 +1,19 @@
 .app-wrapper {
     display: grid;
-    grid-template: 1fr minmax(200px, 900px) / minmax(100px, 200px) 1fr;
+    grid-template: 1fr minmax(200px, 900px) / 1fr minmax(100px, 200px) 3fr 1fr;
     grid-template-areas:
-      "h h"
-      "s m";
+      "z h h k"
+      "z s m k";
+    /*Почему z и k, а не только z?, а потому что мы таким образом не разделяем прямоугольник надвое. Иначе ошибка*/
     grid-gap: 5px;
     /*width: 1080px;*/
     /*height: auto;*/
     /*margin: 0 auto;*/
 }
 
-.Header {
-    grid-area: h;
-    background-color: olivedrab;
-}
-
-.Content {
-    grid-area: m;
-    background-color: lightgoldenrodyellow;
-}
-
-.Sidebar {
-    grid-area: s;
-    background-color: mediumseagreen;
-}
-
 .App-logo {
     height: 7vmin;
     pointer-events: none;
-}
-
-.pfp {
-    height: 25vmin;
-}
-
-.banner {
-    width: 70vmin;
-    height: 15vmin;
-    object-fit: cover;
 }
 
 @media (prefers-reduced-motion: no-preference) {

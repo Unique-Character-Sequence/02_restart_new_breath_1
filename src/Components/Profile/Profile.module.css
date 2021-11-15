@@ -1,0 +1,14 @@
+.main {
+    grid-area: m;
+    background-color: lightgoldenrodyellow;
+}
+
+.pfp {
+    height: 25vmin;
+}
+
+.banner {
+    width: 70vmin;
+    height: 15vmin;
+    object-fit: cover;
+}
