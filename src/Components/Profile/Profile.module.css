@@ -4,11 +4,11 @@
 }
 
 .pfp {
-    height: 25vmin;
+    height: 25vw;
 }
 
 .banner {
-    width: 70vmin;
-    height: 15vmin;
+    width: 70vw;
+    height: 15vw;
     object-fit: cover;
 }

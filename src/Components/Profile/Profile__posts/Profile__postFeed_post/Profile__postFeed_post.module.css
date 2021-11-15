@@ -1,4 +1,40 @@
 .main {
     color: darkblue;
     padding: 10px;
+    width: 50vw;
+    border: 1px solid black;
+}
+
+.post_pfp {
+    height: 50px;
+    border-radius: 50px;
+    border: 2px solid;
+}
+
+.like_indicator {
+    padding: 2px;
+    background-color: gol;
+    border: 1px solid;
+    border-radius: 8px;
+    width: 7vw;
+}
+
+.heart_pic {
+    text-align: right;
+    width: 2.5vw;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .post_pfp {
+        animation: img-spin infinite 10s linear;
+    }
+}
+
+@keyframes img-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

@@ -1,6 +1,6 @@
 .app-wrapper {
     display: grid;
-    grid-template: 1fr minmax(200px, 900px) / 1fr minmax(100px, 200px) 3fr 1fr;
+    grid-template: 8vw 1fr / 1fr minmax(100px, 200px) 3fr 1fr;
     grid-template-areas:
       "z h h k"
       "z s m k";
@@ -18,7 +18,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
     .App-logo {
-        animation: App-logo-spin infinite 20s linear;
+        animation: App-logo-spin infinite 8s linear;
     }
 }
 
