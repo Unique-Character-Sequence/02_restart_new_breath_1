@@ -26,7 +26,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
     .post_pfp {
-        animation: img-spin infinite 10s linear;
+        animation: img-spin infinite 7s linear;
     }
 }
 

@@ -5,7 +5,7 @@ import c from './Template.module.css'
 
 const Template = () => {
     return <div className={c.main}>
-        <Dummy text="Template>"/>
+        <Dummy text="Template"/>
     </div>
 }
 
