@@ -5,6 +5,7 @@ const Sidebar = () => {
         <nav>
             <div><a href="/profile">Profile</a></div>
             <div><a href="/messages">Messages</a></div>
+            <div><a href="/photos">Photos</a></div>
             <div><a href="/settings">Settings</a></div>
         </nav>
     </div>
