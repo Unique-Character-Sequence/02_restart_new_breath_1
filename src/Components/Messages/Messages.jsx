@@ -1,9 +1,11 @@
 import c from './Messages.module.css'
-import Dummy from "../dummy/dummy";
+import Messages_chatList from "./Messages_chatList/Messages_chatList";
+import Messages_chatWindow from "./Messages_chatWindow/Messages_chatWindow";
 
 const Messages = () => {
-    return <div>
-        <Dummy text = 'Страница сообщений/чатов'/>
+    return <div className={c.main}>
+        <Messages_chatList/>
+        <Messages_chatWindow/>
     </div>
 }
 
