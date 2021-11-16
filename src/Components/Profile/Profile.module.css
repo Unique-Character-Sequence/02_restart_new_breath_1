@@ -1,5 +1,4 @@
 .main {
-    grid-area: m;
     background-color: lightgoldenrodyellow;
 }
 
@@ -8,7 +7,8 @@
 }
 
 .banner {
-    width: 70vw;
-    height: 15vw;
+    padding-top: 3px;
+    width: 50vw;
+    height: 10vw;
     object-fit: cover;
 }

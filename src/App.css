@@ -1,6 +1,6 @@
 .app-wrapper {
     display: grid;
-    grid-template: 8vw 1fr / 1fr minmax(100px, 200px) 3fr 1fr;
+    grid-template: 80px 1fr / 1fr 140px 650px 1fr;
     grid-template-areas:
       "z h h k"
       "z s m k";
@@ -14,6 +14,10 @@
 .App-logo {
     height: 7vmin;
     pointer-events: none;
+}
+
+.main-content-area {
+    grid-area: m;
 }
 
 @media (prefers-reduced-motion: no-preference) {

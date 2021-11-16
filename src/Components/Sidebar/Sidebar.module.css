@@ -1,4 +1,8 @@
 .main {
     grid-area: s;
     background-color: mediumseagreen;
+    padding: 5px;
+}
+.main a {
+    text-decoration: none;
 }

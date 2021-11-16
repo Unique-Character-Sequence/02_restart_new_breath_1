@@ -3,7 +3,7 @@ import cutepfp from "../../cutepfp.jpg";
 import classes from './Profile.module.css'
 import Profile__posts from "./Profile__posts/Profile__postFeed";
 
-let Profile = () => {
+const Profile = () => {
     return <div className={classes.main}>
         <div>
             <img className={classes.banner} src={clouds} alt=""/>

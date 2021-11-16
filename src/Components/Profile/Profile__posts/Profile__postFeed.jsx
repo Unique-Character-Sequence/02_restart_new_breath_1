@@ -1,7 +1,7 @@
 import classes from './Profile__postFeed.module.css'
 import Profile__postFeed_post from "./Profile__postFeed_post/Profile__postFeed_post";
 
-let Profile__postFeed = () => {
+const Profile__postFeed = () => {
     return <div className={classes.main}>
         <textarea>Приколдесик</textarea>
         <br/>
@@ -18,9 +18,9 @@ let Profile__postFeed = () => {
                 <li>Боже! ;') я даже завидую тебе...</li>
             </ul>
         </div>
-        <Profile__postFeed_post likes_amount = '311' post_id='1' text="Тестируем пропсики"/>
-        <Profile__postFeed_post likes_amount = '922' post_id='2' text="Опять тестируем пропсики"/>
-        <Profile__postFeed_post likes_amount = '422' post_id='3' text="Оп, пропсики"/>
+        <Profile__postFeed_post author='You' likes_amount='321' post_id='1' text="Тестируем пропсики"/>
+        <Profile__postFeed_post likes_amount='922' post_id='2' text="Опять тестируем пропсики"/>
+        <Profile__postFeed_post likes_amount='422' post_id='3' text="Оп, пропсики"/>
     </div>
 }
 
