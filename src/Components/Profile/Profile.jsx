@@ -1,7 +1,7 @@
 import clouds from "../../clouds.png";
 import cutepfp from "../../cutepfp.jpg";
 import classes from './Profile.module.css'
-import Profile__posts from "./Profile__posts/Profile__postFeed";
+import ProfilePostFeed from "./ProfilePostFeed/ProfilePostFeed";
 
 const Profile = () => {
     return <div className={classes.main}>
@@ -12,7 +12,7 @@ const Profile = () => {
             <img className={classes.pfp} src={cutepfp} alt=""/>
             Pfp + description
         </div>
-        <Profile__posts/>
+        <ProfilePostFeed/>
     </div>
 }
 

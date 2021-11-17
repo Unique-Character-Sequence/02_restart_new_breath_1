@@ -1,4 +1,4 @@
-import c from './Profile__postFeed_post.module.css'
+import c from './ProfilePost.module.css'
 import cutepfp from '../../../../cutepfp.jpg'
 import heart from '../../../../heart.jpg'
 

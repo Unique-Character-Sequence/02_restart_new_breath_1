@@ -1,7 +1,7 @@
-import classes from './Profile__postFeed.module.css'
-import Profile__postFeed_post from "./Profile__postFeed_post/Profile__postFeed_post";
+import classes from './ProfilePostFeed.module.css'
+import ProfilePost from "./ProfilePost/ProfilePost";
 
-const Profile__postFeed = () => {
+const ProfilePostFeed = () => {
     return <div className={classes.main}>
         <textarea>Приколдесик</textarea>
         <br/>
@@ -18,10 +18,10 @@ const Profile__postFeed = () => {
                 <li>Боже! ;') я даже завидую тебе...</li>
             </ul>
         </div>
-        <Profile__postFeed_post author='You' likes_amount='321' post_id='1' text="Тестируем пропсики"/>
-        <Profile__postFeed_post likes_amount='922' post_id='2' text="Опять тестируем пропсики"/>
-        <Profile__postFeed_post likes_amount='422' post_id='3' text="Оп, пропсики"/>
+        <ProfilePost author='You' likes_amount='321' post_id='1' text="Тестируем пропсики"/>
+        <ProfilePost likes_amount='922' post_id='2' text="Опять тестируем пропсики"/>
+        <ProfilePost likes_amount='422' post_id='3' text="Оп, пропсики"/>
     </div>
 }
 
-export default Profile__postFeed
+export default ProfilePostFeed

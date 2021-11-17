@@ -1,0 +1,13 @@
+.main {
+    padding-bottom: 5px;
+}
+
+.main:hover {
+    background-color: lightgray;
+    transition: 0.3s;
+}
+
+.item {
+    text-decoration: none;
+    color: black;
+}
