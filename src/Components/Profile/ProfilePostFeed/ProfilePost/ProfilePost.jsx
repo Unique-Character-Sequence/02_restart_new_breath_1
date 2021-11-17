@@ -12,11 +12,11 @@ const Profile__postFeed_post = (props) => {
             {props.author}
         </div>
         <div>
-            <img className={c.post_pfp} src={props.cutepfp} alt=""/>
+            <img className={c.post_pfp} src={cutepfp} alt=""/>
             {props.text}
         </div>
         <div className={c.like_indicator}>
-            <img className={c.heart_pic} src={props.heart} alt=""/>
+            <img className={c.heart_pic} src={heart} alt=""/>
             {props.likes_amount}
         </div>
     </div>
