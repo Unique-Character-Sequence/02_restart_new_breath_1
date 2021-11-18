@@ -1,11 +1,17 @@
 import MessageTile from "./MessageTile/MessageTile";
 
+let rawMsgContentDatasets = [
+    {text: 'Сообщенивание 1'},
+    {text: 'Сообщенивание 2'},
+    {text: 'Сообщенивание 3'},
+    {text: 'Сообщенивание 4'},
+]
+
+let doneMsgContentDatasets = rawMsgContentDatasets.map(obj => <MessageTile {...obj}/>)
+
 const ChatWindow = () => {
     return <div>
-        <MessageTile text='Сообщение 1'/>
-        <MessageTile text='Сообщение 2'/>
-        <MessageTile text='Сообщение 3'/>
-        <MessageTile text='Сообщение 4'/>
+        {doneMsgContentDatasets}
     </div>
 }
 
