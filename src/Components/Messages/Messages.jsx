@@ -4,8 +4,8 @@ import ChatWindow from "./ChatWindow/ChatWindow";
 
 const Messages = (props) => {
     return <div className={c.main}>
-        <ChatList rawUserTileDatasets={props.rawUserTileDatasets}/>
-        <ChatWindow rawMsgContentDatasets={props.rawMsgContentDatasets}/>
+        <ChatList rawUserTileDatasets={props.MessagesPageDatasets.rawUserTileDatasets}/>
+        <ChatWindow rawMsgContentDatasets={props.MessagesPageDatasets.rawMsgContentDatasets}/>
     </div>
 }
 

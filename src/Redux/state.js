@@ -1,3 +1,5 @@
+import Sidebar from "../Components/Sidebar/Sidebar";
+
 let state = {
     MessagesPageDatasets: {
         rawUserTileDatasets: [
@@ -19,6 +21,14 @@ let state = {
             {post_id: '2', author: 'Бибибус Чечевичкин', likes_amount: '299', text: 'Очень конкретно'},
             {post_id: '3', author: 'Бибибус Кукурача', likes_amount: '19', text: 'Жёстким флексом'},
         ],
+    },
+    SidebarDatasets: {
+        rawActiveFriendsDatasets: [
+            {id: '222', name: 'Алексей Суслик'},
+            {id: '242', name: 'Валерий Жмурик'},
+            {id: '222', name: 'Василий Крысик'},
+            {id: '121', name: 'Артурий Саловик'},
+        ]
     }
 }
 

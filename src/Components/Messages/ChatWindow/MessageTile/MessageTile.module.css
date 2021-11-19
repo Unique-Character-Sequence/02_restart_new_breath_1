@@ -1,17 +1,19 @@
 .blocking {
-    border: 1px solid;
+    /*border: 1px solid;*/
 }
 
 .myMsgWrapper {
     margin-left: auto;
     right: 0;
     padding: 5px;
-    border: 2px solid blue;
+    border: 1px solid blue;
+    border-radius: 4px;
     max-width: 85%;
 }
 
 .theirMsgWrapper {
     padding: 5px;
-    border: 2px solid red;
+    border: 1px solid red;
+    border-radius: 4px;
     max-width: 85%;
 }

@@ -14,15 +14,15 @@ const App = (props) => {
         <BrowserRouter>
             <div className="app-wrapper">
                 <Header/>
-                <Sidebar/>
+                <Sidebar SidebarDatasets={props.state.SidebarDatasets}/>
                 <div className="main-content-area">
                     <Routes>
                         <Route path='/profile'
-                               element={<Profile rawPostDatasets={props.appState.ProfilePageDatasets.rawPostDatasets}/>}/>
+                               element={<Profile
+                                   rawPostDatasets={props.state.ProfilePageDatasets.rawPostDatasets}/>}/>
                         <Route path='/messages'
                                element={<Messages
-                                   rawMsgContentDatasets={props.appState.MessagesPageDatasets.rawMsgContentDatasets}
-                                   rawUserTileDatasets={props.appState.MessagesPageDatasets.rawUserTileDatasets}/>}/>
+                                   MessagesPageDatasets={props.state.MessagesPageDatasets}/>}/>
                         <Route path='/communities' element={<Communities/>}/>
                         <Route path='/photos' element={<Photos/>}/>
                         <Route path='/settings' element={<Settings/>}/>

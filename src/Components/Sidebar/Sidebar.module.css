@@ -20,3 +20,8 @@
     color: yellow;
     transition: 0.3s;
 }
+
+.activeUsersPanel {
+    padding-top: 20vw;
+
+}

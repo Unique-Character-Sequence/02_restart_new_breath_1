@@ -1,24 +1,39 @@
 import c from './Sidebar.module.css'
 import {NavLink} from "react-router-dom";
 
-let ternary = navData => navData.isActive ? c.active : c.item;
+let NavLinkAdvanced = (props) => {
+    function capitalize(s) {
+        return s[0].toUpperCase() + s.slice(1);
+    }
 
-const Sidebar = () => {
+    let text = capitalize(props.to.replace("/", ""))
+    return <div>
+        <NavLink className={navData => navData.isActive ? c.active : c.item}
+                 to={props.to}>{text}
+        </NavLink>
+    </div>
+}
+
+
+// <NavLinkAdvanced to='/messages'/>
+const Sidebar = (props) => {
+    let doneSidebarDatasets = props.SidebarDatasets.rawActiveFriendsDatasets.map(
+        obj => <div>{obj.name}</div>
+    )
+
     return <nav className={c.main}>
-        <div>
-            <NavLink className={ternary} to="/profile">Profile</NavLink>
-        </div>
-        <div>
-            <NavLink className={ternary} to="/messages">Messages</NavLink>
-        </div>
-        <div>
-            <NavLink className={ternary} to="/communities">Communities</NavLink>
-        </div>
-        <div>
-            <NavLink className={ternary} to="/photos">Photos</NavLink>
-        </div>
-        <div>
-            <NavLink className={ternary} to="/settings">Settings</NavLink>
+        <NavLinkAdvanced to='/profile'/>
+        <NavLinkAdvanced to='/messages'/>
+        <NavLinkAdvanced to='/communities'/>
+        <NavLinkAdvanced to='/photos'/>
+        <NavLinkAdvanced to='/settings'/>
+        <div className={c.activeUsersPanel}>
+            Активные пользователи:
+            <br/>
+            __________________
+            <div>
+                {doneSidebarDatasets}
+            </div>
         </div>
     </nav>
 }
