@@ -1,12 +1,16 @@
+.blocking {
+    border: 1px solid;
+}
+
 .myMsgWrapper {
-    float: right;
+    margin-left: auto;
+    right: 0;
     padding: 5px;
     border: 2px solid blue;
     max-width: 85%;
 }
 
 .theirMsgWrapper {
-    float: left;
     padding: 5px;
     border: 2px solid red;
     max-width: 85%;

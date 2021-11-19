@@ -1,5 +1,6 @@
 .main {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 45% 1fr;
     border: 1px solid;
+    padding: 3px 5px 3px;
 }
