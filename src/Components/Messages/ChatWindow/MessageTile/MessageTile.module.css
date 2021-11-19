@@ -1,0 +1,13 @@
+.myMsgWrapper {
+    float: right;
+    padding: 5px;
+    border: 2px solid blue;
+    max-width: 85%;
+}
+
+.theirMsgWrapper {
+    float: left;
+    padding: 5px;
+    border: 2px solid red;
+    max-width: 85%;
+}
