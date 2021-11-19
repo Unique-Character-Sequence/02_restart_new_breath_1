@@ -18,11 +18,11 @@ const App = (props) => {
                 <div className="main-content-area">
                     <Routes>
                         <Route path='/profile'
-                               element={<Profile rawPostDatasets={props.appState.rawPostDatasets}/>}/>
+                               element={<Profile rawPostDatasets={props.appState.ProfilePageDatasets.rawPostDatasets}/>}/>
                         <Route path='/messages'
                                element={<Messages
-                                   rawMsgContentDatasets={props.appState.rawMsgContentDatasets}
-                                   rawUserTileDatasets={props.appState.rawUserTileDatasets}/>}/>
+                                   rawMsgContentDatasets={props.appState.MessagesPageDatasets.rawMsgContentDatasets}
+                                   rawUserTileDatasets={props.appState.MessagesPageDatasets.rawUserTileDatasets}/>}/>
                         <Route path='/communities' element={<Communities/>}/>
                         <Route path='/photos' element={<Photos/>}/>
                         <Route path='/settings' element={<Settings/>}/>
