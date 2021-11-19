@@ -7,10 +7,10 @@ let state = {
             {id: 4, name: 'Бублик Бибубликовый'},
         ],
         rawMsgContentDatasets: [
-            {text: 'Сообщенивание 1'},
-            {text: 'Сообщенивание 2'},
-            {text: 'Сообщенивание 3'},
-            {text: 'Сообщенивание 4'},
+            {text: 'Привет, буброчелик!', myMsg: true},
+            {text: 'Привеееееет, шо ты, как ты, чё дышишь', myMsg: false},
+            {text: 'Да вот, взгрустнул чё-т немного, но, знай, мы не одни', myMsg: true},
+            {text: 'Сообщенивание 4', myMsg: false},
         ],
     },
     ProfilePageDatasets: {
