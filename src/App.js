@@ -9,7 +9,7 @@ import {Routes} from "react-router";
 import Photos from "./Components/Photos/Photos";
 import Communities from "./Components/Communities/Communities";
 
-const App = () => {
+const App = (props) => {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
@@ -17,8 +17,12 @@ const App = () => {
                 <Sidebar/>
                 <div className="main-content-area">
                     <Routes>
-                        <Route path='/profile' element={<Profile/>}/>
-                        <Route path='/messages' element={<Messages/>}/>
+                        <Route path='/profile'
+                               element={<Profile rawPostDatasets={props.rawPostDatasets}/>}/>
+                        <Route path='/messages'
+                               element={<Messages
+                                   rawMsgContentDatasets={props.rawMsgContentDatasets}
+                                   rawUserTileDatasets={props.rawUserTileDatasets}/>}/>
                         <Route path='/communities' element={<Communities/>}/>
                         <Route path='/photos' element={<Photos/>}/>
                         <Route path='/settings' element={<Settings/>}/>

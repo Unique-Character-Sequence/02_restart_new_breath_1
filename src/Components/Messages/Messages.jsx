@@ -2,10 +2,10 @@ import c from './Messages.module.css'
 import ChatList from "./ChatList/ChatList";
 import ChatWindow from "./ChatWindow/ChatWindow";
 
-const Messages = () => {
+const Messages = (props) => {
     return <div className={c.main}>
-        <ChatList/>
-        <ChatWindow/>
+        <ChatList rawUserTileDatasets={props.rawUserTileDatasets}/>
+        <ChatWindow rawMsgContentDatasets={props.rawMsgContentDatasets}/>
     </div>
 }
 
