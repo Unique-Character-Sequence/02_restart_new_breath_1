@@ -10,9 +10,7 @@ import Photos from "./Components/Photos/Photos";
 import Communities from "./Components/Communities/Communities";
 
 const App = (props) => {
-    return (
-        <BrowserRouter>
-            <div className="app-wrapper">
+    return (<div className="app-wrapper">
                 <Header/>
                 <Sidebar SidebarDatasets={props.state.SidebarDatasets}/>
                 <div className="main-content-area">
@@ -29,7 +27,6 @@ const App = (props) => {
                     </Routes>
                 </div>
             </div>
-        </BrowserRouter>
     )
 }
 
