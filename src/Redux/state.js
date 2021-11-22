@@ -41,6 +41,8 @@ let state = {
     }
 }
 
+window.state = state
+
 export let addPost = () => {
     let newPost = {
         post_id: '5',
