@@ -1,4 +1,4 @@
-import Sidebar from "../Components/Sidebar/Sidebar";
+import {rerender} from "../render";
 
 let state = {
     MessagesPageDatasets: {
@@ -49,6 +49,7 @@ export let addPost = (postText) => {
     }
 
     state.ProfilePageDatasets.rawPostDatasets.push(newPost)
+    rerender(state)
 }
 
 export default state
