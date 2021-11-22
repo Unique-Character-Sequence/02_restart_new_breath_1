@@ -1,4 +1,4 @@
-import {rerender} from "../render";
+let rerender = () => {}
 
 let state = {
     MessagesPageDatasets: {
@@ -60,5 +60,8 @@ export let updatePostInput = (postText) => {
     rerender(state)
 }
 
+export let subscribe = (observer) => {
+    rerender = observer;
+}
 
 export default state
