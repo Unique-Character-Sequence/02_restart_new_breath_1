@@ -41,15 +41,15 @@ let state = {
     }
 }
 
-export let addPost = (postText) => {
+export let addPost = () => {
     let newPost = {
         post_id: '5',
         author: 'Жрумбус Крякус',
         likes_amount: '0',
         text: state.ProfilePageDatasets.inputValue
     }
-
     state.ProfilePageDatasets.rawPostDatasets.push(newPost)
+    state.ProfilePageDatasets.inputValue = ''
     rerender(state)
 }
 
