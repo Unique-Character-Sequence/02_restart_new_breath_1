@@ -12,7 +12,10 @@ const Profile = (props) => {
             banner = {clouds}
             description='Опа, прикол'
         />
-        <ProfilePostFeed rawPostDatasets={props.rawPostDatasets}/>
+        <ProfilePostFeed
+            rawPostDatasets={props.rawPostDatasets}
+            addPost={props.addPost}
+        />
     </div>
 }
 

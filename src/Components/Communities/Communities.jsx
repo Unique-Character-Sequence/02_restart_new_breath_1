@@ -2,10 +2,13 @@
 // delete the Dummy import
 import Dummy from "../dummy/dummy";
 import c from './Communities.module.css'
+import CommunityTile from "./CommunityTile/CommunityTile";
 
-const Communities = () => {
+const Communities = (props) => {
+    let doneCommunities = props.CommunitiesPageDatasets.rawCommunitiesListDatasets.map (obj => <CommunityTile {...obj}/>);
+
     return <div className={c.main}>
-        <Dummy text="Communities"/>
+        {doneCommunities}
     </div>
 }
 

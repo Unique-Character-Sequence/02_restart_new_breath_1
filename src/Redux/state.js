@@ -29,7 +29,26 @@ let state = {
             {id: '222', name: 'Василий Крысик'},
             {id: '121', name: 'Артурий Саловик'},
         ]
+    },
+    CommunitiesPageDatasets: {
+        rawCommunitiesListDatasets: [
+            {id: '222', name: 'Жухликовое Сообщество', subs_amount: '1553', isUserSubbed: true},
+            {id: '242', name: 'На рофлах', subs_amount: '5533', isUserSubbed: false},
+            {id: '222', name: 'Данк Мимз', subs_amount: '2223', isUserSubbed: true},
+            {id: '121', name: 'Гемшим Инфаркт', subs_amount: '553', isUserSubbed: false},
+        ]
     }
+}
+
+export let addPost = (postText) => {
+    let newPost = {
+        post_id: '5',
+        author: 'Жрумбус Крякус',
+        likes_amount: '0',
+        text: postText
+    }
+
+    state.ProfilePageDatasets.rawPostDatasets.push(newPost)
 }
 
 export default state
