@@ -5,8 +5,7 @@ const ProfilePostFeed = (props) => {
     let donePosts = props.rawPostDatasets.map(obj => <ProfilePost {...obj}/>)
     let newPostRef = React.createRef();
     let addPost = () => {
-        let text = newPostRef.current.value;
-        props.addPost(text);
+        props.addPost();
     }
     let onInputChange = () => {
         let text = newPostRef.current.value;
