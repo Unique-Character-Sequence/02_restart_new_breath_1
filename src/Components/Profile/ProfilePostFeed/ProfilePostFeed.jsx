@@ -8,9 +8,13 @@ const ProfilePostFeed = (props) => {
         let text = newPostRef.current.value;
         props.addPost(text);
     }
+    let onInputChange = () => {
+        let text = newPostRef.current.value;
+        props.updatePostInput(text);
+    }
     return <div>
         <div>
-            <input ref={newPostRef}  type="text"/>
+            <input type="text" ref={newPostRef} value={props.inputValue} onChange={onInputChange}/>
             <button onClick={addPost}>Post</button>
         </div>
         {donePosts}

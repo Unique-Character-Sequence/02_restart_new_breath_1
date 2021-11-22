@@ -2,7 +2,7 @@ import ReactDOM from "react-dom";
 import React from "react";
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
-import {addPost} from "./Redux/state";
+import {addPost, updatePostInput} from "./Redux/state";
 
 export let rerender = (state) => {
     ReactDOM.render(
@@ -10,7 +10,9 @@ export let rerender = (state) => {
             <BrowserRouter>
                 <App
                     state={state}
-                    addPost={addPost}/>
+                    addPost={addPost}
+                    updatePostInput={updatePostInput}
+                />
             </BrowserRouter>
         </React.StrictMode>,
         document.getElementById('root')

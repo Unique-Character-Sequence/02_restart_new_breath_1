@@ -8,11 +8,13 @@ const Profile = (props) => {
     return <div className={classes.main}>
         <ProfileInfoTile
             name='Беброух Шлёпочелли'
-            pfp = {cutepfp}
-            banner = {clouds}
+            pfp={cutepfp}
+            banner={clouds}
             description='Опа, прикол'
         />
         <ProfilePostFeed
+            inputValue={props.inputValue}
+            updatePostInput={props.updatePostInput}
             rawPostDatasets={props.rawPostDatasets}
             addPost={props.addPost}
         />

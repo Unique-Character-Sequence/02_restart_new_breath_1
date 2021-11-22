@@ -21,6 +21,7 @@ let state = {
             {post_id: '2', author: 'Бибибус Чечевичкин', likes_amount: '299', text: 'Очень конкретно'},
             {post_id: '3', author: 'Бибибус Кукурача', likes_amount: '19', text: 'Жёстким флексом'},
         ],
+        inputValue: 'Чё... Аааааа... Чё...'
     },
     SidebarDatasets: {
         rawActiveFriendsDatasets: [
@@ -51,5 +52,11 @@ export let addPost = (postText) => {
     state.ProfilePageDatasets.rawPostDatasets.push(newPost)
     rerender(state)
 }
+
+export let updatePostInput = (postText) => {
+    state.ProfilePageDatasets.inputValue = postText;
+    rerender(state)
+}
+
 
 export default state
