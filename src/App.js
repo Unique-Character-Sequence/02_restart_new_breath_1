@@ -20,7 +20,9 @@ const App = (props) => {
                         inputValue={props.state.ProfilePageDatasets.inputValue}
                         rawPostDatasets={props.state.ProfilePageDatasets.rawPostDatasets}/>}/>
                     <Route path='/messages' element={<Messages
-                        MessagesPageDatasets={props.state.MessagesPageDatasets}/>}/>
+                        MessagesPageDatasets={props.state.MessagesPageDatasets}
+                        dispatch={props.dispatch}
+                        inputValue={props.state.MessagesPageDatasets.inputValue}/>}/>
                     <Route path='/communities' element={<Communities
                         CommunitiesPageDatasets={props.state.CommunitiesPageDatasets}/>}/>
                     <Route path='/photos' element={<Photos/>}/>

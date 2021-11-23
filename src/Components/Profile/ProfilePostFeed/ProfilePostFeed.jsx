@@ -8,7 +8,6 @@ const ProfilePostFeed = (props) => {
     let action = addPostAC()
     let addPost = () => {
         props.dispatch(action)
-        // props.addPost();
     }
     let onInputChange = () => {
         let text = newPostRef.current.value;

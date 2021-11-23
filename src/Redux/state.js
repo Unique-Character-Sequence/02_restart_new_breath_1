@@ -1,7 +1,10 @@
-let rerender = () => {}
+let rerender = () => {
+}
 
 let ADD_POST = 'ADD_POST'
 let UPDATE_POST_INPUT = 'UPDATE_POST_INPUT'
+let ADD_MSG = 'ADD_MSG'
+let UPDATE_MSG_INPUT = 'UPDATE_MSG_INPUT'
 
 let store = {
     _state: {
@@ -18,6 +21,7 @@ let store = {
                 {text: 'Да вот, взгрустнул чё-т немного, но, знай, мы не одни', myMsg: true},
                 {text: 'Сообщенивание 4', myMsg: false},
             ],
+            inputValue: 'Ааааа!'
         },
         ProfilePageDatasets: {
             rawPostDatasets: [
@@ -47,28 +51,42 @@ let store = {
     getState() {
         return this._state
     },
-    rerender() {},
-    subscribe (observer) {
+    rerender() {
+    },
+    subscribe(observer) {
         this.rerender = observer;
     },
-    dispatch (action) {
-      switch (action.type) {
-          case ADD_POST:
-              let newPost = {
-                  post_id: '5',
-                  author: 'Жрумбус Крякус',
-                  likes_amount: '0',
-                  text: this._state.ProfilePageDatasets.inputValue
-              }
-              this._state.ProfilePageDatasets.rawPostDatasets.push(newPost)
-              this._state.ProfilePageDatasets.inputValue = ''
-              this.rerender(this._state)
-              break
-          case UPDATE_POST_INPUT:
-              this._state.ProfilePageDatasets.inputValue = action.postText;
-              this.rerender(this._state)
-              break
-      }
+    dispatch(action) {
+        switch (action.type) {
+            case ADD_POST:
+                let newPost = {
+                    post_id: '5',
+                    author: 'Жрумбус Крякус',
+                    likes_amount: '0',
+                    text: this._state.ProfilePageDatasets.inputValue
+                }
+                this._state.ProfilePageDatasets.rawPostDatasets.push(newPost)
+                this._state.ProfilePageDatasets.inputValue = ''
+                this.rerender(this._state)
+                break
+            case UPDATE_POST_INPUT:
+                this._state.ProfilePageDatasets.inputValue = action.postText;
+                this.rerender(this._state)
+                break
+            case ADD_MSG:
+                let newMsg = {
+                    myMsg: true,
+                    text: this._state.MessagesPageDatasets.inputValue
+                }
+                this._state.MessagesPageDatasets.rawMsgContentDatasets.push(newMsg)
+                this._state.MessagesPageDatasets.inputValue = ''
+                this.rerender(this._state)
+                break
+            case UPDATE_MSG_INPUT:
+                this._state.MessagesPageDatasets.inputValue = action.msgText;
+                this.rerender(this._state)
+                break
+        }
     }
 }
 
@@ -81,6 +99,17 @@ export const updatePostInputAC = (postText) => {
     return {
         type: UPDATE_POST_INPUT,
         postText: postText
+    }
+}
+export const addMsgAC = () => {
+    return {
+        type: ADD_MSG
+    }
+}
+export const updateMsgInputAC = (msgText) => {
+    return {
+        type: UPDATE_MSG_INPUT,
+        msgText: msgText
     }
 }
 
