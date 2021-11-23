@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import state, {addPost, subscribe, updatePostInput} from './Redux/state'
+import store from './Redux/state'
 import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
@@ -11,8 +11,9 @@ let rerender = (state) => {
             <BrowserRouter>
                 <App
                     state={state}
-                    addPost={addPost}
-                    updatePostInput={updatePostInput}
+                    addPost={store.addPost.bind(store)}
+                    updatePostInput={store.updatePostInput.bind(store)}
+                    // Теперь this для этих методов это только store
                 />
             </BrowserRouter>
         </React.StrictMode>,
@@ -20,6 +21,6 @@ let rerender = (state) => {
     );
 }
 
-rerender(state);
+rerender(store.getState());
 
-subscribe(rerender);
+store.subscribe(rerender);
