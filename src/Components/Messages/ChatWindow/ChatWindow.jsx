@@ -1,7 +1,7 @@
 import MessageTile from "./MessageTile/MessageTile";
 import c from './ChatWindow.module.css'
 import react from 'react'
-import {addMsgAC, updateMsgInputAC} from "../../../Redux/state";
+import {addMsgAC, updateMsgInputAC} from "../../../Redux/messagesReducer";
 
 const ChatWindow = (props) => {
     let newMessageRef = react.createRef()

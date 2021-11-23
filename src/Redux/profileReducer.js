@@ -20,3 +20,16 @@ export const profileReducer = (state, action) => {
     }
     return state
 }
+
+export const addPostAC = () => {
+    return {
+        type: ADD_POST
+    }
+}
+export const updatePostInputAC = (postText) => {
+    return {
+        type: UPDATE_POST_INPUT,
+        postText: postText
+    }
+}
+

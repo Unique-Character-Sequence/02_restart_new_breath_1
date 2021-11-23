@@ -4,11 +4,6 @@ import {messagesReducer} from "./messagesReducer";
 let rerender = () => {
 }
 
-let ADD_POST = 'ADD_POST'
-let UPDATE_POST_INPUT = 'UPDATE_POST_INPUT'
-let ADD_MSG = 'ADD_MSG'
-let UPDATE_MSG_INPUT = 'UPDATE_MSG_INPUT'
-
 let store = {
     _state: {
         MessagesPageDatasets: {
@@ -60,35 +55,16 @@ let store = {
         this.rerender = observer;
     },
     dispatch(action) {
-        debugger
-        profileReducer(this._state.ProfilePageDatasets, action)
+        // из-за того, что мы не копируем стейт, то мы можем манипулировать
+        // им напрямую из редьюсеров
+        // Вообще-то мы должны работать с результатор работы редьюсера.
+        this._state.ProfilePageDatasets = profileReducer(this._state.ProfilePageDatasets, action)
         messagesReducer(this._state.MessagesPageDatasets, action)
         this.rerender(this._state)
+        console.log(this._state);
     }
 }
 
-export const addPostAC = () => {
-    return {
-        type: ADD_POST
-    }
-}
-export const updatePostInputAC = (postText) => {
-    return {
-        type: UPDATE_POST_INPUT,
-        postText: postText
-    }
-}
-export const addMsgAC = () => {
-    return {
-        type: ADD_MSG
-    }
-}
-export const updateMsgInputAC = (msgText) => {
-    return {
-        type: UPDATE_MSG_INPUT,
-        msgText: msgText
-    }
-}
 
 window.state = store.getState()
 export default store

@@ -1,6 +1,6 @@
 import ProfilePost from "./ProfilePost/ProfilePost";
 import React from "react"
-import {addPostAC, updatePostInputAC} from "../../../Redux/state";
+import {addPostAC, updatePostInputAC} from "../../../Redux/profileReducer";
 
 const ProfilePostFeed = (props) => {
     let donePosts = props.rawPostDatasets.map(obj => <ProfilePost {...obj}/>)
