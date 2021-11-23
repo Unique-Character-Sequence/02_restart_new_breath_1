@@ -16,9 +16,8 @@ const App = (props) => {
             <div className="main-content-area">
                 <Routes>
                     <Route path='/profile' element={<Profile
+                        dispatch={props.dispatch}
                         inputValue={props.state.ProfilePageDatasets.inputValue}
-                        addPost={props.addPost}
-                        updatePostInput={props.updatePostInput}
                         rawPostDatasets={props.state.ProfilePageDatasets.rawPostDatasets}/>}/>
                     <Route path='/messages' element={<Messages
                         MessagesPageDatasets={props.state.MessagesPageDatasets}/>}/>

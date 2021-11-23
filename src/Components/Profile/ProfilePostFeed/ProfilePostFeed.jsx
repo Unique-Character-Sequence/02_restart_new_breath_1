@@ -5,11 +5,12 @@ const ProfilePostFeed = (props) => {
     let donePosts = props.rawPostDatasets.map(obj => <ProfilePost {...obj}/>)
     let newPostRef = React.createRef();
     let addPost = () => {
-        props.addPost();
+        props.dispatch({type: "ADD_POST"})
+        // props.addPost();
     }
     let onInputChange = () => {
         let text = newPostRef.current.value;
-        props.updatePostInput(text);
+        props.dispatch({type: "UPDATE_POST_INPUT", postText: text})
     }
     return <div>
         <div>

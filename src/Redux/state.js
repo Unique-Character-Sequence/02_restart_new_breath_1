@@ -1,5 +1,8 @@
 let rerender = () => {}
 
+let ADD_POST = 'ADD_POST'
+let UPDATE_POST_INPUT = 'UPDATE_POST_INPUT'
+
 let store = {
     _state: {
         MessagesPageDatasets: {
@@ -45,24 +48,27 @@ let store = {
         return this._state
     },
     rerender() {},
-    addPost () {
-        let newPost = {
-            post_id: '5',
-            author: 'Жрумбус Крякус',
-            likes_amount: '0',
-            text: this._state.ProfilePageDatasets.inputValue
-        }
-        this._state.ProfilePageDatasets.rawPostDatasets.push(newPost)
-        this._state.ProfilePageDatasets.inputValue = ''
-        this.rerender(this._state)
-    },
-    updatePostInput (postText) {
-        debugger
-        this._state.ProfilePageDatasets.inputValue = postText;
-        this.rerender(this._state)
-    },
     subscribe (observer) {
         this.rerender = observer;
+    },
+    dispatch (action) {
+      switch (action.type) {
+          case ADD_POST:
+              let newPost = {
+                  post_id: '5',
+                  author: 'Жрумбус Крякус',
+                  likes_amount: '0',
+                  text: this._state.ProfilePageDatasets.inputValue
+              }
+              this._state.ProfilePageDatasets.rawPostDatasets.push(newPost)
+              this._state.ProfilePageDatasets.inputValue = ''
+              this.rerender(this._state)
+              break
+          case UPDATE_POST_INPUT:
+              this._state.ProfilePageDatasets.inputValue = action.postText;
+              this.rerender(this._state)
+              break
+      }
     }
 }
 window.state = store.getState()

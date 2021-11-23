@@ -13,6 +13,7 @@ const Profile = (props) => {
             description='Опа, прикол'
         />
         <ProfilePostFeed
+            dispatch={props.dispatch}
             inputValue={props.inputValue}
             updatePostInput={props.updatePostInput}
             rawPostDatasets={props.rawPostDatasets}
