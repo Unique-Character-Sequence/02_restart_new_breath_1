@@ -1,3 +1,6 @@
+import {profileReducer} from "./profileReducer";
+import {messagesReducer} from "./messagesReducer";
+
 let rerender = () => {
 }
 
@@ -57,36 +60,10 @@ let store = {
         this.rerender = observer;
     },
     dispatch(action) {
-        switch (action.type) {
-            case ADD_POST:
-                let newPost = {
-                    post_id: '5',
-                    author: 'Жрумбус Крякус',
-                    likes_amount: '0',
-                    text: this._state.ProfilePageDatasets.inputValue
-                }
-                this._state.ProfilePageDatasets.rawPostDatasets.push(newPost)
-                this._state.ProfilePageDatasets.inputValue = ''
-                this.rerender(this._state)
-                break
-            case UPDATE_POST_INPUT:
-                this._state.ProfilePageDatasets.inputValue = action.postText;
-                this.rerender(this._state)
-                break
-            case ADD_MSG:
-                let newMsg = {
-                    myMsg: true,
-                    text: this._state.MessagesPageDatasets.inputValue
-                }
-                this._state.MessagesPageDatasets.rawMsgContentDatasets.push(newMsg)
-                this._state.MessagesPageDatasets.inputValue = ''
-                this.rerender(this._state)
-                break
-            case UPDATE_MSG_INPUT:
-                this._state.MessagesPageDatasets.inputValue = action.msgText;
-                this.rerender(this._state)
-                break
-        }
+        debugger
+        profileReducer(this._state.ProfilePageDatasets, action)
+        messagesReducer(this._state.MessagesPageDatasets, action)
+        this.rerender(this._state)
     }
 }
 

@@ -5,11 +5,11 @@ import {addMsgAC, updateMsgInputAC} from "../../../Redux/state";
 
 const ChatWindow = (props) => {
     let newMessageRef = react.createRef()
-    let addMessage = () => {
+    let onAddMessage = () => {
         let action = addMsgAC()
         props.dispatch(action)
     }
-    let updateMessageInput = () => {
+    let onUpdateMessageInput = () => {
         let text = newMessageRef.current.value
         let action = updateMsgInputAC(text)
         props.dispatch(action)
@@ -19,8 +19,12 @@ const ChatWindow = (props) => {
     return <div className={c.main}>
         {doneMsgContentDatasets}
         <div>
-            <input type="text" ref={newMessageRef} onSubmit={addMessage} onChange={updateMessageInput} value={props.inputValue}/>
-            <button onClick={addMessage}>Send</button>
+            <input type="text"
+                   ref={newMessageRef}
+                   onSubmit={onAddMessage}
+                   onChange={onUpdateMessageInput}
+                   value={props.inputValue}/>
+            <button onClick={onAddMessage}>Send</button>
         </div>
     </div>
 }
