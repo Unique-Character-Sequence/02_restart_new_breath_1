@@ -12,7 +12,6 @@ let rerender = (state) => {
                 <App
                     state={state}
                     dispatch={store.dispatch.bind(store)}
-                    updatePostInput={store.updatePostInput.bind(store)}
                     // Теперь this для этих методов это только store
                 />
             </BrowserRouter>

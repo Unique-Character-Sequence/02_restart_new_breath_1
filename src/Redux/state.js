@@ -71,5 +71,18 @@ let store = {
       }
     }
 }
+
+export const addPostAC = () => {
+    return {
+        type: ADD_POST
+    }
+}
+export const updatePostInputAC = (postText) => {
+    return {
+        type: UPDATE_POST_INPUT,
+        postText: postText
+    }
+}
+
 window.state = store.getState()
 export default store
