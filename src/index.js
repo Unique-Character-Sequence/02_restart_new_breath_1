@@ -4,19 +4,20 @@ import store from './Redux/redux_store'
 import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
+import {Provider} from "react-redux";
 
 let rerender = (state) => {
     ReactDOM.render(
-        <React.StrictMode>
-            <BrowserRouter>
+        <BrowserRouter>
+            <Provider store={store}>
                 <App
                     state={state}
                     store={store}
                     dispatch={store.dispatch.bind(store)}
                     // Теперь this для этих методов это только store
                 />
-            </BrowserRouter>
-        </React.StrictMode>,
+            </Provider>
+        </BrowserRouter>,
         document.getElementById('root')
     );
 }
