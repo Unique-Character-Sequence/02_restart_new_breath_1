@@ -1,30 +1,22 @@
-import MessageTile from "./MessageTile/MessageTile";
 import c from './ChatWindow.module.css'
 import react from 'react'
-import {addMsgAC, updateMsgInputAC} from "../../../Redux/messagesReducer";
 
 const ChatWindow = (props) => {
     let newMessageRef = react.createRef()
-    let onAddMessage = () => {
-        let action = addMsgAC()
-        props.dispatch(action)
-    }
-    let onUpdateMessageInput = () => {
+    let onUpdateMsgInput = () => {
         let text = newMessageRef.current.value
-        let action = updateMsgInputAC(text)
-        props.dispatch(action)
+        props.updateMsgInput(text)
     }
 
-    let doneMsgContentDatasets = props.rawMsgContentDatasets.map(obj => <MessageTile {...obj}/>)
     return <div className={c.main}>
-        {doneMsgContentDatasets}
+        {props.doneMsgContentDatasets}
         <div>
             <input type="text"
                    ref={newMessageRef}
-                   onSubmit={onAddMessage}
-                   onChange={onUpdateMessageInput}
+                   onSubmit={props.onAddMessage}
+                   onChange={onUpdateMsgInput}
                    value={props.inputValue}/>
-            <button onClick={onAddMessage}>Send</button>
+            <button onClick={props.onAddMessage}>Send</button>
         </div>
     </div>
 }
