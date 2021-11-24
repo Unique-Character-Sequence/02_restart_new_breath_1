@@ -7,6 +7,6 @@ let initialState = {
     ]
 }
 
-export const communitiesReducer = (state, action) => {
+export const communitiesReducer = (state = initialState, action) => {
     return state
 }

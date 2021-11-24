@@ -11,6 +11,7 @@ let rerender = (state) => {
             <BrowserRouter>
                 <App
                     state={state}
+                    store={store}
                     dispatch={store.dispatch.bind(store)}
                     // Теперь this для этих методов это только store
                 />
@@ -22,4 +23,9 @@ let rerender = (state) => {
 
 rerender(store.getState());
 
-store.subscribe(rerender);
+
+store.subscribe(() => {
+    // Данная переданная функция будет вызываться
+    let state = store.getState()
+    rerender(state)
+});

@@ -31,10 +31,8 @@ export const messagesReducer = (state = initialState, action) => {
             state.inputValue = action.msgText;
             break
     }
-    // return state
-    // Казалось бы, что мы должны возвращать его, но всё и так работает, потому
-    // что мы взаимодействуем с ссылкой на store
-    return {}
+    // а вот теперь, с нормальным redux канает только так
+    return state
 }
 
 export const addMsgAC = () => {

@@ -14,9 +14,9 @@ const Profile = (props) => {
         />
         <ProfilePostFeed
             dispatch={props.dispatch}
-            inputValue={props.inputValue}
+            inputValue={props.ProfilePageDatasets.inputValue}
             updatePostInput={props.updatePostInput}
-            rawPostDatasets={props.rawPostDatasets}
+            rawPostDatasets={props.ProfilePageDatasets.rawPostDatasets}
             addPost={props.addPost}
         />
     </div>

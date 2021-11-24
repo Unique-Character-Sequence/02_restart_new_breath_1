@@ -4,6 +4,7 @@ import react from 'react'
 import {addMsgAC, updateMsgInputAC} from "../../../Redux/messagesReducer";
 
 const ChatWindow = (props) => {
+    debugger
     let newMessageRef = react.createRef()
     let onAddMessage = () => {
         let action = addMsgAC()
