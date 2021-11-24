@@ -1,8 +1,8 @@
 import clouds from "../../clouds.png";
 import cutepfp from "../../cutepfp.jpg";
 import classes from './Profile.module.css'
-import ProfilePostFeed from "./ProfilePostFeed/ProfilePostFeed";
 import ProfileInfoTile from "./ProfileInfoTile/ProfileInfoTile";
+import ContainerProfilePostFeed from "./ProfilePostFeed/ContainerProfilePostFeed";
 
 const Profile = (props) => {
     return <div className={classes.main}>
@@ -12,12 +12,10 @@ const Profile = (props) => {
             banner={clouds}
             description='Опа, прикол'
         />
-        <ProfilePostFeed
+        <ContainerProfilePostFeed
             dispatch={props.dispatch}
             inputValue={props.ProfilePageDatasets.inputValue}
-            updatePostInput={props.updatePostInput}
             rawPostDatasets={props.ProfilePageDatasets.rawPostDatasets}
-            addPost={props.addPost}
         />
     </div>
 }
