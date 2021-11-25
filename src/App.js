@@ -15,9 +15,7 @@ const App = (props) => {
             <Sidebar SidebarDatasets={props.state.SidebarDatasets}/>
             <div className="main-content-area">
                 <Routes>
-                    <Route path='/profile' element={<Profile
-                        dispatch={props.dispatch}
-                        ProfilePageDatasets={props.state.ProfilePageDatasets}/>}/>
+                    <Route path='/profile' element={<Profile/>}/>
                     <Route path='/messages' element={<Messages
                         MessagesPageDatasets={props.state.MessagesPageDatasets}
                         dispatch={props.dispatch}/>}/>

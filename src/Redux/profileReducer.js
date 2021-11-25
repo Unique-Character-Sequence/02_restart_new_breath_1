@@ -1,3 +1,6 @@
+import _ from 'lodash';
+import {cloneDeep} from 'lodash';
+
 let ADD_POST = 'ADD_POST'
 let UPDATE_POST_INPUT = 'UPDATE_POST_INPUT'
 
@@ -13,21 +16,26 @@ let initialState = {
 // state is not global one, this is just the part this particular reducer needs
 export const profileReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_POST:
+        case ADD_POST: {
+            let stateCopy = _.cloneDeep(state)
             let newPost = {
                 post_id: '5',
                 author: 'Жрумбус Крякус',
                 likes_amount: '0',
                 text: state.inputValue
             }
-            state.rawPostDatasets.push(newPost)
-            state.inputValue = ''
-            break
-        case UPDATE_POST_INPUT:
-            state.inputValue = action.postText;
-            break
+            stateCopy.rawPostDatasets.push(newPost)
+            stateCopy.inputValue = ''
+            return stateCopy
+        }
+        case UPDATE_POST_INPUT: {
+            let stateCopy = _.cloneDeep(state)
+            stateCopy.inputValue = action.postText;
+            return stateCopy
+        }
+        default:
+            return state
     }
-    return state
 }
 
 export const addPostAC = () => {

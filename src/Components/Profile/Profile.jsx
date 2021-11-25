@@ -4,7 +4,7 @@ import classes from './Profile.module.css'
 import ProfileInfoTile from "./ProfileInfoTile/ProfileInfoTile";
 import ContainerProfilePostFeed from "./ProfilePostFeed/ContainerProfilePostFeed";
 
-const Profile = (props) => {
+const Profile = () => {
     return <div className={classes.main}>
         <ProfileInfoTile
             name='Беброух Шлёпочелли'
@@ -12,11 +12,7 @@ const Profile = (props) => {
             banner={clouds}
             description='Опа, прикол'
         />
-        <ContainerProfilePostFeed
-            dispatch={props.dispatch}
-            inputValue={props.ProfilePageDatasets.inputValue}
-            rawPostDatasets={props.ProfilePageDatasets.rawPostDatasets}
-        />
+        <ContainerProfilePostFeed/>
     </div>
 }
 

@@ -1,4 +1,3 @@
-import ProfilePost from "./ProfilePost/ProfilePost";
 import React from "react"
 import {addPostAC, updatePostInputAC} from "../../../Redux/profileReducer";
 import ProfilePostFeed from "./ProfilePostFeed";
@@ -7,7 +6,7 @@ import {connect} from "react-redux";
 let mapStateToProps = (state) => {
     return {
         inputValue: state.ProfilePageDatasets.inputValue,
-        donePosts: state.ProfilePageDatasets.rawPostDatasets
+        rawPostDatasets: state.ProfilePageDatasets.rawPostDatasets
     }
 }
 
@@ -21,7 +20,6 @@ let mapDispatchToProps = (dispatch) => {
             let action = addPostAC()
             dispatch(action)
         }
-
     }
 }
 
