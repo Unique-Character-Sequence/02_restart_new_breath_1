@@ -8,6 +8,7 @@ import {Route} from "react-router-dom";
 import {Routes} from "react-router";
 import Photos from "./Components/Photos/Photos";
 import Communities from "./Components/Communities/Communities";
+import Friends from "./Components/Friends/Friends";
 
 const App = (props) => {
     return (<div className="app-wrapper">
@@ -22,6 +23,7 @@ const App = (props) => {
                     <Route path='/communities' element={<Communities
                         CommunitiesPageDatasets={props.state.CommunitiesPageDatasets}/>}/>
                     <Route path='/photos' element={<Photos/>}/>
+                    <Route path='/friends' element={<Friends/>}/>
                     <Route path='/settings' element={<Settings/>}/>
                 </Routes>
             </div>

@@ -1,5 +1,5 @@
-import {addMsgAC, updateMsgInputAC} from "../../../Redux/messagesReducer";
-import ChatWindow from "./ChatWindow";
+import {addMsgAC, updateMsgInputAC} from "../Redux/messagesReducer";
+import ChatWindow from "../Components/Messages/ChatWindow/ChatWindow";
 import {connect} from "react-redux";
 
 let mapStateToProps = (state) => {

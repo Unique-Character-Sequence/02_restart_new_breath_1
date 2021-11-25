@@ -1,6 +1,6 @@
 import React from "react"
-import {addPostAC, updatePostInputAC} from "../../../Redux/profileReducer";
-import ProfilePostFeed from "./ProfilePostFeed";
+import {addPostAC, updatePostInputAC} from "../Redux/profileReducer";
+import ProfilePostFeed from "../Components/Profile/ProfilePostFeed/ProfilePostFeed";
 import {connect} from "react-redux";
 
 let mapStateToProps = (state) => {

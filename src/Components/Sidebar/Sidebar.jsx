@@ -25,6 +25,7 @@ const Sidebar = (props) => {
         <NavLinkAdvanced to='/messages'/>
         <NavLinkAdvanced to='/communities'/>
         <NavLinkAdvanced to='/photos'/>
+        <NavLinkAdvanced to='/friends'/>
         <NavLinkAdvanced to='/settings'/>
         <div className={c.activeUsersPanel}>
             Активные пользователи:

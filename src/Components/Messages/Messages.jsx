@@ -1,6 +1,6 @@
 import c from './Messages.module.css'
 import ChatList from "./ChatList/ChatList";
-import ContainerChatWindow from "./ChatWindow/ContainerChatWindow";
+import ContainerChatWindow from "../../Containers/ContainerChatWindow";
 
 
 const Messages = (props) => {
