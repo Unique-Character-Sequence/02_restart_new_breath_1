@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import {cloneDeep} from 'lodash';
 
 let ADD_POST = 'ADD_POST'
@@ -17,7 +16,7 @@ let initialState = {
 export const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST: {
-            let stateCopy = _.cloneDeep(state)
+            let stateCopy = cloneDeep(state)
             let newPost = {
                 post_id: '5',
                 author: 'Жрумбус Крякус',
@@ -29,7 +28,7 @@ export const profileReducer = (state = initialState, action) => {
             return stateCopy
         }
         case UPDATE_POST_INPUT: {
-            let stateCopy = _.cloneDeep(state)
+            let stateCopy = cloneDeep(state)
             stateCopy.inputValue = action.postText;
             return stateCopy
         }

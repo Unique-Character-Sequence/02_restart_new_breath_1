@@ -1,23 +1,27 @@
-import MessageTile from "./MessageTile/MessageTile";
 import {addMsgAC, updateMsgInputAC} from "../../../Redux/messagesReducer";
 import ChatWindow from "./ChatWindow";
+import {connect} from "react-redux";
 
-const ContainerChatWindow = (props) => {
-    let onAddMessage = () => {
-        let action = addMsgAC()
-        props.dispatch(action)
+let mapStateToProps = (state) => {
+    return {
+        rawMsgContentDatasets: state.MessagesPageDatasets.rawMsgContentDatasets,
+        inputValue: state.MessagesPageDatasets.inputValue
     }
-    let updateMsgInput = (text) => {
-        let action = updateMsgInputAC(text)
-        props.dispatch(action)
-    }
-    let doneMsgContentDatasets = props.rawMsgContentDatasets.map(obj => <MessageTile {...obj}/>)
-    return <ChatWindow
-        doneMsgContentDatasets={doneMsgContentDatasets}
-        updateMsgInput={updateMsgInput}
-        onAddMessage={onAddMessage}
-        inputValue={props.inputValue}
-    />
 }
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        updateMsgInput: (text) => {
+            let action = updateMsgInputAC(text)
+            dispatch(action)
+        },
+        onAddMessage: () => {
+            let action = addMsgAC()
+            dispatch(action)
+        }
+    }
+}
+
+const ContainerChatWindow = connect(mapStateToProps, mapDispatchToProps)(ChatWindow)
 
 export default ContainerChatWindow;

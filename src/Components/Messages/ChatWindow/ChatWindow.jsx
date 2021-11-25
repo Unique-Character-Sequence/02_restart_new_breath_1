@@ -1,5 +1,6 @@
 import c from './ChatWindow.module.css'
 import react from 'react'
+import MessageTile from "./MessageTile/MessageTile";
 
 const ChatWindow = (props) => {
     let newMessageRef = react.createRef()
@@ -8,8 +9,9 @@ const ChatWindow = (props) => {
         props.updateMsgInput(text)
     }
 
+    let doneMsgContentDatasets = props.rawMsgContentDatasets.map(obj => <MessageTile {...obj}/>)
     return <div className={c.main}>
-        {props.doneMsgContentDatasets}
+        {doneMsgContentDatasets}
         <div>
             <input type="text"
                    ref={newMessageRef}

@@ -1,3 +1,5 @@
+import {cloneDeep} from "lodash";
+
 let ADD_MSG = 'ADD_MSG'
 let UPDATE_MSG_INPUT = 'UPDATE_MSG_INPUT'
 
@@ -19,20 +21,24 @@ let initialState = {
 
 export const messagesReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_MSG:
+        case ADD_MSG: {
+            let stateCopy = cloneDeep(state)
             let newMsg = {
                 myMsg: true,
                 text: state.inputValue
             }
-            state.rawMsgContentDatasets.push(newMsg)
-            state.inputValue = ''
-            break
-        case UPDATE_MSG_INPUT:
-            state.inputValue = action.msgText;
-            break
+            stateCopy.rawMsgContentDatasets.push(newMsg)
+            stateCopy.inputValue = ''
+            return stateCopy
+        }
+        case UPDATE_MSG_INPUT: {
+            let stateCopy = cloneDeep(state)
+            stateCopy.inputValue = action.msgText;
+            return stateCopy
+        }
+        default:
+            return state
     }
-    // а вот теперь, с нормальным redux канает только так
-    return state
 }
 
 export const addMsgAC = () => {
