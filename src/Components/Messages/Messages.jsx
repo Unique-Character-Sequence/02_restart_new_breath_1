@@ -6,7 +6,7 @@ import ContainerChatWindow from "../../Containers/ContainerChatWindow";
 const Messages = (props) => {
 
     return <div className={c.main}>
-        <ChatList rawUserTileDatasets={props.MessagesPageDatasets.rawUserTileDatasets}/>
+        <ChatList rawUserTileDatasets={props.rawUserTileDatasets}/>
         <ContainerChatWindow/>
     </div>
 }

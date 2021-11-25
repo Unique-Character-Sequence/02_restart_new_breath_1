@@ -1,9 +1,11 @@
 import c from './Friends.module.css'
-import Dummy from "../dummy/dummy";
+import UserTile from "./UserTile/UserTile";
 
-const Friends = () => {
+const Friends = (props) => {
+    let doneUsersDatasets = props.rawUsersDatasets.map(obj => <UserTile
+        switchFollowedStatus={props.switchFollowedStatus} {...obj} />)
     return <div className={c.main}>
-        <Dummy text="Friends"/>
+        {doneUsersDatasets}
     </div>
 }
 

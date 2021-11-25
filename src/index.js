@@ -13,7 +13,6 @@ ReactDOM.render(
             <App
                 state={store.getState()}
                 store={store}
-                dispatch={store.dispatch.bind(store)}
                 // Теперь this для этих методов это только store
             />
         </Provider>

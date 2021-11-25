@@ -3,12 +3,14 @@ import {profileReducer} from "./profileReducer";
 import {messagesReducer} from "./messagesReducer";
 import {communitiesReducer} from "./communitiesReducer";
 import {sidebarReducer} from "./sidebarReducer";
+import {friendsReducer} from "./friendsReducer";
 
 let reducers = combineReducers({
     ProfilePageDatasets: profileReducer,
     MessagesPageDatasets: messagesReducer,
     CommunitiesPageDatasets: communitiesReducer,
-    SidebarDatasets: sidebarReducer
+    SidebarDatasets: sidebarReducer,
+    UsersDatasets: friendsReducer
 })
 
 
