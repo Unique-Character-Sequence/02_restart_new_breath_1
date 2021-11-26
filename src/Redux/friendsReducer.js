@@ -11,10 +11,10 @@ export const friendsReducer = (state = initialState, action) => {
         case SWITCH_FOLLOWED_STATUS:
             return {
                 ...state,
-                // для каждой итерации маппинга свериваем id, и переключаем isUserFollowed
+                // для каждой итерации маппинга свериваем id, и переключаем friend
                 rawUsersDatasets: state.rawUsersDatasets.map(userDataSet => {
                     if (userDataSet.id === action.id) {
-                        return {...userDataSet, isUserFollowed: !userDataSet.isUserFollowed}
+                        return {...userDataSet, friend: !userDataSet.friend}
                     } else return userDataSet
                 })
             }

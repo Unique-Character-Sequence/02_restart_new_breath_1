@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 
 let mapStateToProps = (state) => {
     return {
-        rawUsersDatasets: state.UsersDatasets.rawUsersDatasets
+        rawUsersDatasets: state.UsersDatasets.rawUsersDatasets,
     }
 }
 

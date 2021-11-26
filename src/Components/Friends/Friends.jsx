@@ -1,16 +1,16 @@
 import c from './Friends.module.css'
 import UserTile from "./UserTile/UserTile";
+import axios from "axios"
 
 const Friends = (props) => {
     if (props.rawUsersDatasets.length === 0) {
-        props.setUsersDatasets([
-            {id: 1, name: "Жмых Андреев", isUserFollowed: false, isFriend: false},
-            {id: 2, name: "Нежмых Сергеев", isUserFollowed: false, isFriend: false},
-            {id: 3, name: "Жмых Михайлов", isUserFollowed: false, isFriend: false},
-            {id: 4, name: "Нежмых Гребнев", isUserFollowed: false, isFriend: false},
-            {id: 5, name: "Жмых Лебедев", isUserFollowed: false, isFriend: false},
-            {id: 6, name: "Жмых Златаев", isUserFollowed: false, isFriend: false},
-        ])
+        // после
+        axios.get("https://social-network.samuraijs.com/api/1.0/users")
+            .then(
+                response => {
+                    console.log(response.data)
+                    props.setUsersDatasets(response.data.items)
+                })
     }
 
     let doneUsersDatasets = props.rawUsersDatasets.map(obj => <UserTile
