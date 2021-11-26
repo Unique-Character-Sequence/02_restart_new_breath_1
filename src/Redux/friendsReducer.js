@@ -2,14 +2,8 @@ let SWITCH_FOLLOWED_STATUS = 'SWITCH_FOLLOWED_STATUS'
 let SET_USERS_DATASETS = 'SET_USERS_DATASETS'
 
 let initialState = {
-    rawUsersDatasets: [
-        {id: 1, name: "Жмых Андреев", isUserFollowed: false, isFriend: false},
-        {id: 2, name: "Нежмых Сергеев", isUserFollowed: false, isFriend: false},
-        {id: 3, name: "Жмых Михайлов", isUserFollowed: false, isFriend: false},
-        {id: 4, name: "Нежмых Гребнев", isUserFollowed: false, isFriend: false},
-        {id: 5, name: "Жмых Лебедев", isUserFollowed: false, isFriend: false},
-        {id: 6, name: "Жмых Златаев", isUserFollowed: false, isFriend: false},
-    ]
+    // без этого всё падает.
+    rawUsersDatasets: []
 }
 
 export const friendsReducer = (state = initialState, action) => {
