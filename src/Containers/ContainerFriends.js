@@ -1,6 +1,7 @@
-import {setUsersDatasetsAC, switchFollowedStatusAC} from "../Redux/friendsReducer";
+import {setCurrentSetOfUsersAC, setUsersDatasetsAC, switchFollowedStatusAC} from "../Redux/friendsReducer";
 import Friends from "../Components/Friends/Friends";
 import {connect} from "react-redux";
+import axios from "axios";
 
 let mapStateToProps = (state) => {
     return {
@@ -19,6 +20,10 @@ let mapDispatchToProps = (dispatch) => {
         },
         setUsersDatasets: (rawUsersDatasets) => {
             let action = setUsersDatasetsAC(rawUsersDatasets)
+            dispatch(action)
+        },
+        setCurrentSetOfUsers: (currentSetOfUsers) => {
+            let action = setCurrentSetOfUsersAC(currentSetOfUsers)
             dispatch(action)
         },
     }

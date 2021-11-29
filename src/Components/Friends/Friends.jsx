@@ -3,6 +3,7 @@ import UserTile from "./UserTile/UserTile";
 import axios from "axios"
 import {useEffect} from 'react'
 import Paginator from "./Paginator/Paginator";
+import {requestSetUsersDatasets} from "./requestSetUsersDatasets";
 
 const Friends = (props) => {
     // TODO: Оп
@@ -10,13 +11,9 @@ const Friends = (props) => {
     useEffect(() => {
         // componentDidMount
         console.log('componentDidMount')
-        axios.get("https://social-network.samuraijs.com/api/1.0/users")
-            .then(
-                response => {
-                    // console.log(response.data)
-                    props.setUsersDatasets(response.data.items)
-                })
+        requestSetUsersDatasets(props.itemsPerSet, props.currentSetOfUsers, props.setUsersDatasets)
     }, [])
+
     let doneUsersDatasets = props.rawUsersDatasets.map(obj => <UserTile
         switchFollowedStatus={props.switchFollowedStatus} {...obj} />)
 
@@ -25,6 +22,8 @@ const Friends = (props) => {
             totalNumber={props.totalNumberOfUsers}
             itemsPerSet={props.itemsPerSet}
             selectedPage={props.currentSetOfUsers}
+            setUsersDatasets={props.setUsersDatasets}
+            setCurrentSetOfUsers={props.setCurrentSetOfUsers}
         />
         <button onClick={() => alert('Теперь это делает useEffect&axios')}>Get Users</button>
         {doneUsersDatasets}
