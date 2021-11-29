@@ -1,6 +1,8 @@
 let SWITCH_FOLLOWED_STATUS = 'SWITCH_FOLLOWED_STATUS'
 let SET_USERS_DATASETS = 'SET_USERS_DATASETS'
 let SET_CURRENT_SET_OF_USERS = 'SET_CURRENT_SET_OF_USERS'
+let SET_TOTAL_NUMBER_OF_USERS = 'SET_TOTAL_NUMBER_OF_USERS'
+
 
 let initialState = {
     // без этого всё падает.
@@ -27,6 +29,8 @@ export const friendsReducer = (state = initialState, action) => {
             return {...state, rawUsersDatasets: [...action.rawUsersDatasets]}
         case SET_CURRENT_SET_OF_USERS:
             return {...state, currentSetOfUsers: action.currentSetOfUsers}
+        case SET_TOTAL_NUMBER_OF_USERS:
+            return {...state, totalNumberOfUsers: action.totalNumberOfUsers}
         default:
             return state
     }
@@ -46,10 +50,17 @@ export const setUsersDatasetsAC = (rawUsersDatasets) => {
     }
 }
 
-
 export const setCurrentSetOfUsersAC = (currentSetOfUsers) => {
     return {
         type: SET_CURRENT_SET_OF_USERS,
         currentSetOfUsers: currentSetOfUsers
+    }
+}
+
+
+export const setTotalNumberOfUsersAC = (totalNumberOfUsers) => {
+    return {
+        type: SET_TOTAL_NUMBER_OF_USERS,
+        totalNumberOfUsers: totalNumberOfUsers
     }
 }

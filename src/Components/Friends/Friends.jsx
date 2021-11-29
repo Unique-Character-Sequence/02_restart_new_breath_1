@@ -11,7 +11,11 @@ const Friends = (props) => {
     useEffect(() => {
         // componentDidMount
         console.log('componentDidMount')
-        requestSetUsersDatasets(props.itemsPerSet, props.currentSetOfUsers, props.setUsersDatasets)
+        requestSetUsersDatasets(
+            props.itemsPerSet,
+            props.currentSetOfUsers,
+            props.setUsersDatasets,
+            props.setTotalNumberOfUsers)
     }, [])
 
     let doneUsersDatasets = props.rawUsersDatasets.map(obj => <UserTile
@@ -24,6 +28,7 @@ const Friends = (props) => {
             selectedPage={props.currentSetOfUsers}
             setUsersDatasets={props.setUsersDatasets}
             setCurrentSetOfUsers={props.setCurrentSetOfUsers}
+            setTotalNumberOfUsers={props.setTotalNumberOfUsers}
         />
         <button onClick={() => alert('Теперь это делает useEffect&axios')}>Get Users</button>
         {doneUsersDatasets}

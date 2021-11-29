@@ -10,10 +10,10 @@ let Paginator = (props) => {
     }
     let onClick = (pageNumber) => {
         props.setCurrentSetOfUsers(pageNumber)
-        requestSetUsersDatasets(props.itemsPerSet, pageNumber, props.setUsersDatasets)
+        requestSetUsersDatasets(props.itemsPerSet, pageNumber, props.setUsersDatasets, props.setTotalNumberOfUsers)
     }
     let mappedListOfPagesNumbers =
-        listOfPagesNumbers.map(pageNumber => <span
+        listOfPagesNumbers.slice(0,30).map(pageNumber => <span
             onClick={() => onClick(pageNumber)}
             className={props.selectedPage === pageNumber ? c.isSelected : c.isNotSelected}>
         {pageNumber}</span>)

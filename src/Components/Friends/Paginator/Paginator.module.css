@@ -1,14 +1,23 @@
 .main {
-    padding: 4px;
+    padding: 6px;
+    -webkit-user-select: none;
 }
 
 .isNotSelected {
     padding: 2px;
-
+    -webkit-transition: padding, border ;
+    transition-duration: .1s;
 }
 
+.isNotSelected:hover {
+    padding: 3px;
+    border: 2px solid gray;
+    border-radius: 5px;
+}
+
+
 .isSelected {
-    padding: 2px;
+    padding: 3px;
     /*font-weight: bold;*/
     border: 2px solid;
     border-radius: 5px;
