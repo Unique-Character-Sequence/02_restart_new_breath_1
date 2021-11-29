@@ -5,6 +5,9 @@ import {connect} from "react-redux";
 let mapStateToProps = (state) => {
     return {
         rawUsersDatasets: state.UsersDatasets.rawUsersDatasets,
+        itemsPerSet: state.UsersDatasets.itemsPerSet,
+        totalNumberOfUsers: state.UsersDatasets.totalNumberOfUsers,
+        currentSetOfUsers: state.UsersDatasets.currentSetOfUsers,
     }
 }
 

@@ -3,7 +3,11 @@ let SET_USERS_DATASETS = 'SET_USERS_DATASETS'
 
 let initialState = {
     // без этого всё падает.
-    rawUsersDatasets: []
+    rawUsersDatasets: [],
+    itemsPerSet: 5,
+    totalNumberOfUsers: 100,
+    currentSetOfUsers: 1 // Пользователи считают с единицы, поэтому с 1 и начинаем
+    // TODO: Пофиксить эти захардкоденные данные
 }
 
 export const friendsReducer = (state = initialState, action) => {
