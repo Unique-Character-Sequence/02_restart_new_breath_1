@@ -2,6 +2,7 @@ import c from './Friends.module.css'
 import UserTile from "./UserTile/UserTile";
 import axios from "axios"
 import {useEffect} from 'react'
+import Paginator from "./Paginator/Paginator";
 
 const Friends = (props) => {
     // TODO: Оп
@@ -19,26 +20,12 @@ const Friends = (props) => {
     let doneUsersDatasets = props.rawUsersDatasets.map(obj => <UserTile
         switchFollowedStatus={props.switchFollowedStatus} {...obj} />)
 
-
-    //TODO: [start] Это нужно вынесит в отдельную функцию
-    let Paginator = (totalNumber, itemsPerSet, selectedPage) => {
-        let numberOfPages = totalNumber / itemsPerSet
-        let listOfPagesNumbers = []
-        for (let i = 1; i <= numberOfPages; i++) {
-            // console.log(`i = ${i}`);
-            listOfPagesNumbers.push(i)
-        }
-
-        listOfPagesNumbers.map(pageNumber => <span className={c.selectedPage}>{pageNumber}</span>)
-        console.log(c.selectedPage);
-        return listOfPagesNumbers
-    }
-    //TODO: [end]
-
-    let mapped ;
-
     return <div className={c.main}>
-        {Paginator(props.totalNumberOfUsers, props.itemsPerSet)}
+        <Paginator
+            totalNumber={props.totalNumberOfUsers}
+            itemsPerSet={props.itemsPerSet}
+            selectedPage={props.currentSetOfUsers}
+        />
         <button onClick={() => alert('Теперь это делает useEffect&axios')}>Get Users</button>
         {doneUsersDatasets}
     </div>

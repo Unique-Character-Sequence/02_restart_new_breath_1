@@ -1,0 +1,15 @@
+.main {
+    padding: 4px;
+}
+
+.isNotSelected {
+    padding: 2px;
+
+}
+
+.isSelected {
+    padding: 2px;
+    /*font-weight: bold;*/
+    border: 2px solid;
+    border-radius: 5px;
+}
