@@ -3,7 +3,8 @@ import UserTile from "./UserTile/UserTile";
 import axios from "axios"
 import {useEffect} from 'react'
 import Paginator from "./Paginator/Paginator";
-import {requestSetUsersDatasets} from "./requestSetUsersDatasets";
+import Preloader from "../../Other/Preloader";
+
 
 const Friends = (props) => {
     // TODO: Оп
@@ -11,11 +12,7 @@ const Friends = (props) => {
     useEffect(() => {
         // componentDidMount
         console.log('componentDidMount')
-        requestSetUsersDatasets(
-            props.itemsPerSet,
-            props.currentSetOfUsers,
-            props.setUsersDatasets,
-            props.setTotalNumberOfUsers)
+        props.requestSetUsersDatasets(props.itemsPerSet, props.currentSetOfUsers)
     }, [])
 
     let doneUsersDatasets = props.rawUsersDatasets.map(obj => <UserTile
@@ -29,10 +26,15 @@ const Friends = (props) => {
             setUsersDatasets={props.setUsersDatasets}
             setCurrentSetOfUsers={props.setCurrentSetOfUsers}
             setTotalNumberOfUsers={props.setTotalNumberOfUsers}
+            requestSetUsersDatasets={props.requestSetUsersDatasets}
         />
-        <button onClick={() => alert('Теперь это делает useEffect&axios')}>Get Users</button>
-        {doneUsersDatasets}
+        {props.isLoading ? <Preloader/> :
+            <>
+                <button onClick={() => alert('Теперь это делает useEffect&axios')}>Get Users</button>
+                {doneUsersDatasets}
+            </>}
     </div>
+
 }
 
 export default Friends

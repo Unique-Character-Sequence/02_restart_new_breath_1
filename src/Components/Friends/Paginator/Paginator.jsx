@@ -1,6 +1,5 @@
 import c from "./Paginator.module.css";
 import {ceil} from "lodash/math";
-import {requestSetUsersDatasets} from "../requestSetUsersDatasets";
 
 let Paginator = (props) => {
     let numberOfPages = props.totalNumber / props.itemsPerSet
@@ -10,7 +9,7 @@ let Paginator = (props) => {
     }
     let onClick = (pageNumber) => {
         props.setCurrentSetOfUsers(pageNumber)
-        requestSetUsersDatasets(props.itemsPerSet, pageNumber, props.setUsersDatasets, props.setTotalNumberOfUsers)
+        props.requestSetUsersDatasets(props.itemsPerSet, pageNumber)
     }
     let mappedListOfPagesNumbers =
         listOfPagesNumbers.slice(0,30).map(pageNumber => <span

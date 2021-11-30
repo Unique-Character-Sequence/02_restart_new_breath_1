@@ -5,7 +5,7 @@
 
 .isNotSelected {
     padding: 2px;
-    -webkit-transition: padding, border ;
+    -webkit-transition: padding, border;
     transition-duration: .1s;
 }
 

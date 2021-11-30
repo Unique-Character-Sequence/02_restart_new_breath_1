@@ -2,13 +2,14 @@ let SWITCH_FOLLOWED_STATUS = 'SWITCH_FOLLOWED_STATUS'
 let SET_USERS_DATASETS = 'SET_USERS_DATASETS'
 let SET_CURRENT_SET_OF_USERS = 'SET_CURRENT_SET_OF_USERS'
 let SET_TOTAL_NUMBER_OF_USERS = 'SET_TOTAL_NUMBER_OF_USERS'
+let SET_IS_LOADING = 'SET_IS_LOADING'
 
 
 let initialState = {
     // без этого всё падает.
     rawUsersDatasets: [],
     itemsPerSet: 5,
-    totalNumberOfUsers: 100,
+    totalNumberOfUsers: 0,
     currentSetOfUsers: 1 // Пользователи считают с единицы, поэтому с 1 и начинаем
     // TODO: Пофиксить эти захардкоденные данные
 }
@@ -31,6 +32,8 @@ export const friendsReducer = (state = initialState, action) => {
             return {...state, currentSetOfUsers: action.currentSetOfUsers}
         case SET_TOTAL_NUMBER_OF_USERS:
             return {...state, totalNumberOfUsers: action.totalNumberOfUsers}
+        case SET_IS_LOADING:
+            return {...state, isLoading: action.isLoading}
         default:
             return state
     }
@@ -62,5 +65,12 @@ export const setTotalNumberOfUsersAC = (totalNumberOfUsers) => {
     return {
         type: SET_TOTAL_NUMBER_OF_USERS,
         totalNumberOfUsers: totalNumberOfUsers
+    }
+}
+
+export const setIsLoadingAC = (isLoading) => {
+    return {
+        type: SET_IS_LOADING,
+        isLoading: isLoading
     }
 }
