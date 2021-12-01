@@ -9,7 +9,7 @@ let Paginator = (props) => {
     }
     let onClick = (pageNumber) => {
         props.setCurrentSetOfUsers(pageNumber)
-        props.requestSetUsersDatasets(props.itemsPerSet, pageNumber)
+        props.requestSetUsersDatasets({count: props.itemsPerSet, page: pageNumber})
     }
     let mappedListOfPagesNumbers =
         listOfPagesNumbers.slice(0,30).map(pageNumber => <span

@@ -12,7 +12,7 @@ const Friends = (props) => {
     useEffect(() => {
         // componentDidMount
         console.log('componentDidMount')
-        props.requestSetUsersDatasets(props.itemsPerSet, props.currentSetOfUsers)
+        props.requestSetUsersDatasets({count: props.itemsPerSet, page: props.currentSetOfUsers})
     }, [])
 
     let doneUsersDatasets = props.rawUsersDatasets.map(obj => <UserTile

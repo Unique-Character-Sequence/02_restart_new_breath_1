@@ -1,7 +1,7 @@
 import React from "react"
-import {addPostAC, updatePostInputAC} from "../Redux/profileReducer";
 import ProfilePostFeed from "../Components/Profile/ProfilePostFeed/ProfilePostFeed";
 import {connect} from "react-redux";
+import {addPost, updatePostInput} from "../Redux/profileSlice";
 
 let mapStateToProps = (state) => {
     return {
@@ -13,11 +13,11 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     return {
         updatePostInput: (text) => {
-            let action = updatePostInputAC(text)
+            let action = updatePostInput(text)
             dispatch(action)
         },
         addPost: () => {
-            let action = addPostAC()
+            let action = addPost()
             dispatch(action)
         }
     }

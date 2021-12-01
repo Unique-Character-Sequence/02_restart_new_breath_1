@@ -15,6 +15,7 @@ let initialState = {
 }
 
 export const friendsReducer = (state = initialState, action) => {
+    //TODO: Заменить на createSlice из Redux-toolkit
     switch (action.type) {
         case SWITCH_FOLLOWED_STATUS:
             return {

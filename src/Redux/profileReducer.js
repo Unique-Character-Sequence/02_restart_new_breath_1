@@ -12,7 +12,6 @@ let initialState = {
     inputValue: 'Чё... Аааааа... Чё...'
 }
 
-// state is not global one, this is just the part this particular reducer needs
 export const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST: {

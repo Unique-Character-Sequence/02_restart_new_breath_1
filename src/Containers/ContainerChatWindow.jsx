@@ -1,6 +1,7 @@
-import {addMsgAC, updateMsgInputAC} from "../Redux/messagesReducer";
+
 import ChatWindow from "../Components/Messages/ChatWindow/ChatWindow";
 import {connect} from "react-redux";
+import {addMsg, updateMsgInput} from "../Redux/messagesSlice";
 
 let mapStateToProps = (state) => {
     return {
@@ -12,11 +13,11 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     return {
         updateMsgInput: (text) => {
-            let action = updateMsgInputAC(text)
+            let action = updateMsgInput(text)
             dispatch(action)
         },
         onAddMessage: () => {
-            let action = addMsgAC()
+            let action = addMsg()
             dispatch(action)
         }
     }
