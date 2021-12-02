@@ -5,13 +5,13 @@ import sidebarSlice from "./sidebarSlice";
 import messagesSlice from "./messagesSlice";
 import communitiesSlice from "./communitiesSlice";
 
-const rootReducer = combineReducers({
+const rootReducer = {
     ProfilePageDatasets: profileSlice,
     MessagesPageDatasets: messagesSlice,
     CommunitiesPageDatasets: communitiesSlice,
     UsersDatasets: friendsSlice,
     SidebarDatasets: sidebarSlice,
-})
+}
 
 export const store = configureStore({
     reducer: rootReducer

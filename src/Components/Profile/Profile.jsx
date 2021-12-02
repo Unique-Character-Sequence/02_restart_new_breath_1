@@ -2,17 +2,27 @@ import clouds from "../../clouds.png";
 import cutepfp from "../../cutepfp.jpg";
 import classes from './Profile.module.css'
 import ProfileInfoTile from "./ProfileInfoTile/ProfileInfoTile";
-import ContainerProfilePostFeed from "../../Containers/ContainerProfilePostFeed";
+import ProfilePostFeed from "./ProfilePostFeed/ProfilePostFeed";
+import {useEffect} from "react";
+import {useParams} from "react-router";
 
-const Profile = () => {
+const Profile = (props) => {
+    let idFromUrl = useParams().id
+
+    useEffect(() => {
+        console.log('componentDidMount')
+        props.setUserProfile(idFromUrl)
+    }, [])
+
     return <div className={classes.main}>
-        <ProfileInfoTile
-            name='Беброух Шлёпочелли'
-            pfp={cutepfp}
-            banner={clouds}
-            description='Опа, прикол'
+        <ProfileInfoTile {...props.userProfileDataset}
         />
-        <ContainerProfilePostFeed/>
+        <ProfilePostFeed
+            rawPostDatasets={props.rawPostDatasets}
+            inputValue={props.inputValue}
+            addPost={props.addPost}
+            updatePostInput={props.updatePostInput}
+        />
     </div>
 }
 
