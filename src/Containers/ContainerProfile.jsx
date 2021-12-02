@@ -41,5 +41,4 @@ let mapDispatchToProps = (dispatch) => {
 
 
 const ContainerProfile = connect(mapStateToProps, mapDispatchToProps)(Profile)
-
 export default ContainerProfile;

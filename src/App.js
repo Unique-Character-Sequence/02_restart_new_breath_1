@@ -1,5 +1,4 @@
 import './App.css'
-import Header from "./Components/Header/Header"
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Messages from "./Components/Messages/Messages";
 import Settings from "./Components/Settings/Settings";
@@ -9,10 +8,11 @@ import Photos from "./Components/Photos/Photos";
 import Communities from "./Components/Communities/Communities";
 import ContainerFriends from "./Containers/ContainerFriends";
 import ContainerProfile from "./Containers/ContainerProfile";
+import ContainerHeader from "./Containers/ContainerHeader";
 
 const App = (props) => {
     return (<div className="app-wrapper">
-            <Header/>
+            <ContainerHeader/>
             <Sidebar SidebarDatasets={props.state.SidebarDatasets}/>
             <div className="main-content-area">
                 <Routes>

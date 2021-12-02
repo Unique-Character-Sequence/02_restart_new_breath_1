@@ -2,3 +2,26 @@
     grid-area: h;
     background-color: olivedrab;
 }
+
+.main img {
+}
+
+.loginButton {
+    margin-left: auto;
+    right: 0;
+    font-size: 20px;
+    padding: 5px;
+    /*border: 1px solid blue;*/
+    /*border-radius: 4px;*/
+    max-width: 35%;
+    text-align: right;
+}
+
+.loginButton a {
+    color: blue;
+}
+
+.loginButton a:hover {
+    color: darkblue;
+    transition: all 0.2s;
+}

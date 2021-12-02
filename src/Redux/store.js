@@ -4,6 +4,7 @@ import profileSlice from "./profileSlice";
 import sidebarSlice from "./sidebarSlice";
 import messagesSlice from "./messagesSlice";
 import communitiesSlice from "./communitiesSlice";
+import authSlice from "./authSlice";
 
 const rootReducer = {
     ProfilePageDatasets: profileSlice,
@@ -11,6 +12,7 @@ const rootReducer = {
     CommunitiesPageDatasets: communitiesSlice,
     UsersDatasets: friendsSlice,
     SidebarDatasets: sidebarSlice,
+    AuthData: authSlice
 }
 
 export const store = configureStore({
