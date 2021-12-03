@@ -27,9 +27,9 @@ let mapDispatchToProps = (dispatch) => {
             if (id !== "") {
                 // FIXME: Когда наш Profile будет приходить с сервера if будет не нужен
                 getProfileApi(id)
-                    .then(response => {
-                            dispatch(setUserProfile(response))
-                            console.log('response.data:', response);
+                    .then(data => {
+                            dispatch(setUserProfile(data))
+                            console.log('response.data:', data);
                         }
                     )
             }
