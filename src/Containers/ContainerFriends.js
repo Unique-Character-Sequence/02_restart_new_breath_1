@@ -24,20 +24,20 @@ let mapDispatchToProps = (dispatch) => {
             //TODO: post request result => then
             if (followed === true) {
                 switchFollowedStatusAPI(id, followed)
-                    .then(response => {
-                        console.log('switchFollowedStatus response.data', response.data)
-                        response.data.resultCode === 0 ?
+                    .then(data => {
+                        console.log('switchFollowedStatus data.data', data)
+                        data.resultCode === 0 ?
                             dispatch(switchFollowedStatus(id)) :
-                            alert(response.data.messages)
+                            alert(data.messages)
                     })
             }
             if (followed === false) {
                 switchFollowedStatusAPI(id, followed)
-                    .then(response => {
-                        console.log('switchFollowedStatus response.data', response.data)
-                        response.data.resultCode === 0 ?
+                    .then(data => {
+                        console.log('switchFollowedStatus data.data', data)
+                        data.resultCode === 0 ?
                             dispatch(switchFollowedStatus(id)) :
-                            alert(response.data.messages)
+                            alert(data.messages)
                     })
             }
         },
@@ -58,10 +58,10 @@ let mapDispatchToProps = (dispatch) => {
             console.log(obj)
             getUsersApi(obj.count, obj.page)
                 .then(
-                    response => {
-                        console.log('Friends', response.data)
-                        dispatch(setUsersDatasets(response.data.items))
-                        dispatch(setTotalNumberOfUsers(response.data.totalCount))
+                    data => {
+                        console.log('Friends', data)
+                        dispatch(setUsersDatasets(data.items))
+                        dispatch(setTotalNumberOfUsers(data.totalCount))
                         dispatch(setIsLoading(false))
                     })
         }
