@@ -1,5 +1,3 @@
-import clouds from "../../clouds.png";
-import cutepfp from "../../cutepfp.jpg";
 import classes from './Profile.module.css'
 import ProfileInfoTile from "./ProfileInfoTile/ProfileInfoTile";
 import ProfilePostFeed from "./ProfilePostFeed/ProfilePostFeed";
@@ -11,7 +9,9 @@ const Profile = (props) => {
 
     useEffect(() => {
         console.log('componentDidMount')
-        props.setUserProfile(idFromUrl)
+        if (idFromUrl) {
+            props.setUserProfile(idFromUrl)
+        }
     }, [])
 
     return <div className={classes.main}>

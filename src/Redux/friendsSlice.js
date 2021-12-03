@@ -12,7 +12,7 @@ let friendsSlice = createSlice({
         switchFollowedStatus(state, action) {
             state.rawUsersDatasets = state.rawUsersDatasets.map(userDataSet => {
                 if (userDataSet.id === action.payload) {
-                    return {...userDataSet, friend: !userDataSet.friend}
+                    return {...userDataSet, followed: !userDataSet.followed}
                 } else return userDataSet
             })
         },

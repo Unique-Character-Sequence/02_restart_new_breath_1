@@ -1,6 +1,3 @@
-// Use 'Ctrl+E' to replace all 'Communities' with the name you need
-// delete the Dummy import
-import Dummy from "../dummy/dummy";
 import c from './Communities.module.css'
 import CommunityTile from "./CommunityTile/CommunityTile";
 

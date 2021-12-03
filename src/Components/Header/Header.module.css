@@ -1,19 +1,31 @@
 .main {
     grid-area: h;
     background-color: olivedrab;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .main img {
 }
 
+.logo_wrapper {
+    /*border: 1px solid red;*/
+    /*border-radius: 4px;*/
+}
+
+.logo {
+    pointer-events: none;
+    width: 28%;
+}
+
 .loginButton {
-    margin-left: auto;
-    right: 0;
+    /*margin-left: auto;*/
+    /*right: 0;*/
     font-size: 20px;
-    padding: 5px;
+    padding: 6px;
     /*border: 1px solid blue;*/
     /*border-radius: 4px;*/
-    max-width: 35%;
+    /*max-width: 35%;*/
     text-align: right;
 }
 
@@ -24,4 +36,21 @@
 .loginButton a:hover {
     color: darkblue;
     transition: all 0.2s;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+    .logo {
+        animation: logo-spin infinite 4s ease-in-out;
+    }
+}
+
+@keyframes logo-spin {
+    from {
+        transform: rotate(0deg);
+
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

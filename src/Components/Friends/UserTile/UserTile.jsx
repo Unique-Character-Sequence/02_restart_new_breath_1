@@ -8,10 +8,11 @@ const UserTile = (props) => {
         <div>
             <img className={c.pic} src={props.photos.small ? props.photos.small : defaultpfp} alt=""/>
             <NavLink to={`/profile/${props.id}`}>{props.name}</NavLink>
+            <div>Status: {props.status}</div>
         </div>
         <div>
-            <button onClick={() => props.switchFollowedStatus(props.id)}>
-                {props.friend ? 'Unfollow' : 'Follow'}
+            <button onClick={() => props.switchFollowedStatus(props.id, props.followed)}>
+                {props.followed ? 'Unfollow' : 'Follow'}
             </button>
         </div>
     </div>

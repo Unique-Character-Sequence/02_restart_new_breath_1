@@ -1,6 +1,5 @@
 import c from './Friends.module.css'
 import UserTile from "./UserTile/UserTile";
-import axios from "axios"
 import {useEffect} from 'react'
 import Paginator from "./Paginator/Paginator";
 import Preloader from "../../Other/Preloader";

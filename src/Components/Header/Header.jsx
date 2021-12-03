@@ -1,5 +1,5 @@
 import logo from "../../logo.svg";
-import classes from './Header.module.css'
+import c from './Header.module.css'
 import {useEffect} from "react";
 
 let Header = (props) => {
@@ -7,18 +7,23 @@ let Header = (props) => {
         props.getCredentials()
     }, [])
     console.log('Header props:', props);
+
     let availableNickname = () => {
         if (props.userCredentials && props.userCredentials.login) {
             return props.userCredentials.login
         } else return 'Not Authorized'
     }
 
+    let authLink = 'https://social-network.samuraijs.com/login'
+
     return (
-        <div className={classes.main}>
-            <div className={classes.loginButton}>
-                <a href="#s">{availableNickname()}</a>
+        <div className={c.main}>
+            <div className={c.logo_wrapper}>
+                <img className={c.logo} src={logo} alt=""/>
             </div>
-            <img className="App-logo" src={logo} alt=""/>
+            <div className={c.loginButton}>
+                <a target="_blank" href={authLink}>{availableNickname()}</a>
+            </div>
         </div>
     )
 }

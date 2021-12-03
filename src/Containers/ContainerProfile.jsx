@@ -1,4 +1,3 @@
-import React from "react"
 import {connect} from "react-redux";
 import {addPost, setUserProfile, updatePostInput} from "../Redux/profileSlice";
 import Profile from "../Components/Profile/Profile";
@@ -8,11 +7,11 @@ let mapStateToProps = (state) => {
     return {
         inputValue: state.ProfilePageDatasets.inputValue,
         rawPostDatasets: state.ProfilePageDatasets.rawPostDatasets,
-        userProfileDataset: state.ProfilePageDatasets.userProfileDataset
+        userProfileDataset: state.ProfilePageDatasets.userProfileDataset,
+        // FIXME: userId: state.AuthData.userCredentials.userId
     }
 }
 //TODO: Запрашивать данные надо в зависимости от url `/profile/${props.id}`
-//TODO: createAction reduxToolkit зачекать
 
 let mapDispatchToProps = (dispatch) => {
     return {

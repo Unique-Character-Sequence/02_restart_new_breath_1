@@ -17,6 +17,11 @@ const App = (props) => {
             <div className="main-content-area">
                 <Routes>
                     <Route path='/profile/:id' element={<ContainerProfile/>}/>
+                    {/*{<Route path='/profile' element={<ContainerProfile/>}/>}*/}
+
+                    {/*FIXME: Надо настроить так, чтобы id брался из authData, а если нету, то id='5'*/}
+                    {/*FIXME: Либо дальше зайти и не показывать вообще то, что неавторизованному не доступно*/}
+
                     <Route path='/messages' element={<Messages
                         rawUserTileDatasets={props.state.MessagesPageDatasets.rawUserTileDatasets}/>}/>
                     <Route path='/communities' element={<Communities

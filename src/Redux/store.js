@@ -1,4 +1,4 @@
-import {combineReducers, configureStore} from "@reduxjs/toolkit"
+import {configureStore} from "@reduxjs/toolkit"
 import friendsSlice from "./friendsSlice";
 import profileSlice from "./profileSlice";
 import sidebarSlice from "./sidebarSlice";
