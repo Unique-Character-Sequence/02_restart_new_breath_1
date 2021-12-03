@@ -1,7 +1,7 @@
 import {connect} from "react-redux";
 import {addPost, setUserProfile, updatePostInput} from "../Redux/profileSlice";
 import Profile from "../Components/Profile/Profile";
-import {get} from "axios";
+import {getProfileApi} from "../API/samuraijsAPI";
 
 let mapStateToProps = (state) => {
     return {
@@ -24,10 +24,9 @@ let mapDispatchToProps = (dispatch) => {
             dispatch(action)
         },
         setUserProfile: (id) => {
-            let apiWithoutParams = 'https://social-network.samuraijs.com/api/1.0/profile'
             if (id !== "") {
                 // FIXME: Когда наш Profile будет приходить с сервера if будет не нужен
-                get(`${apiWithoutParams}/${id}`)
+                getProfileApi(id)
                     .then(response => {
                             dispatch(setUserProfile(response.data))
                             console.log('response.data:', response.data);

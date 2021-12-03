@@ -1,13 +1,12 @@
 import Friends from "../Components/Friends/Friends";
 import {connect} from "react-redux";
-import {get, post} from "axios";
 import {
     setCurrentSetOfUsers, setIsLoading,
     setTotalNumberOfUsers,
     setUsersDatasets,
     switchFollowedStatus
 } from "../Redux/friendsSlice";
-import axios from "axios";
+import {getUsersApi, switchFollowedStatusAPI} from "../API/samuraijsAPI";
 
 let mapStateToProps = (state) => {
     return {
@@ -23,29 +22,22 @@ let mapDispatchToProps = (dispatch) => {
     return {
         switchFollowedStatus: (id, followed) => {
             //TODO: post request result => then
-            let config = {withCredentials: true, headers: {'API-KEY': '40ac32b5-dec9-4885-a28b-52e1934371e9'}}
-            let apiURL = `https://social-network.samuraijs.com/api/1.0/follow/${id}`
             if (followed === true) {
-                axios.delete(apiURL, config)
+                switchFollowedStatusAPI(id, followed)
                     .then(response => {
                         console.log('switchFollowedStatus response.data', response.data)
-                        if (response.data.resultCode === 0) {
-                            debugger
-                            dispatch(switchFollowedStatus(id))
-                        } else {
+                        response.data.resultCode === 0 ?
+                            dispatch(switchFollowedStatus(id)) :
                             alert(response.data.messages)
-                        }
                     })
             }
             if (followed === false) {
-                post(apiURL, {}, config)
+                switchFollowedStatusAPI(id, followed)
                     .then(response => {
                         console.log('switchFollowedStatus response.data', response.data)
-                        if (response.data.resultCode === 0) {
-                            dispatch(switchFollowedStatus(id))
-                        } else {
+                        response.data.resultCode === 0 ?
+                            dispatch(switchFollowedStatus(id)) :
                             alert(response.data.messages)
-                        }
                     })
             }
         },
@@ -63,10 +55,8 @@ let mapDispatchToProps = (dispatch) => {
         },
         requestSetUsersDatasets: (obj) => {
             dispatch(setIsLoading(true))
-            // setUsersDatasets();
             console.log(obj)
-            let apiWithoutParams = 'https://social-network.samuraijs.com/api/1.0/users'
-            get(`${apiWithoutParams}?count=${obj.count}&page=${obj.page}`, {withCredentials: true})
+            getUsersApi(obj.count, obj.page)
                 .then(
                     response => {
                         console.log('Friends', response.data)
