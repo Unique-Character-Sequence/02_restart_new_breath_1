@@ -25,8 +25,16 @@ let friendsSlice = createSlice({
         setTotalNumberOfUsers(state, action) {
             state.totalNumberOfUsers = action.payload
         },
-        setIsLoading(state, action) {
-            state.isLoading = action.payload
+        setIsPageLoading(state, action) {
+            state.isPageLoading = action.payload
+        },
+        setIsFollowingPending(state, action) {
+            state.rawUsersDatasets = state.rawUsersDatasets.map(userDataSet => {
+                return userDataSet.id === action.payload ? {
+                    ...userDataSet,
+                    isFollowingPending: !userDataSet.isFollowingPending
+                } : userDataSet;
+            })
         },
     }
 })
@@ -37,5 +45,6 @@ export const {
     setUsersDatasets,
     setCurrentSetOfUsers,
     setTotalNumberOfUsers,
-    setIsLoading
+    setIsPageLoading,
+    setIsFollowingPending
 } = friendsSlice.actions

@@ -1,7 +1,7 @@
 import Friends from "../Components/Friends/Friends";
 import {connect} from "react-redux";
 import {
-    setCurrentSetOfUsers, setIsLoading,
+    setCurrentSetOfUsers, setIsFollowingPending, setIsPageLoading,
     setTotalNumberOfUsers,
     setUsersDatasets,
     switchFollowedStatus
@@ -14,7 +14,7 @@ let mapStateToProps = (state) => {
         itemsPerSet: state.UsersDatasets.itemsPerSet,
         totalNumberOfUsers: state.UsersDatasets.totalNumberOfUsers,
         currentSetOfUsers: state.UsersDatasets.currentSetOfUsers,
-        isLoading: state.UsersDatasets.isLoading,
+        isPageLoading: state.UsersDatasets.isPageLoading,
     }
 }
 
@@ -22,22 +22,21 @@ let mapDispatchToProps = (dispatch) => {
     return {
         switchFollowedStatus: (id, followed) => {
             //TODO: post request result => then
+            dispatch(setIsFollowingPending(id, true))
             if (followed === true) {
                 switchFollowedStatusAPI(id, followed)
                     .then(data => {
                         console.log('switchFollowedStatus data.data', data)
-                        data.resultCode === 0 ?
-                            dispatch(switchFollowedStatus(id)) :
-                            alert(data.messages)
+                        data.resultCode === 0 ? dispatch(switchFollowedStatus(id)) : alert(data.messages)
+                        dispatch(setIsFollowingPending(id, false))
                     })
             }
             if (followed === false) {
                 switchFollowedStatusAPI(id, followed)
                     .then(data => {
                         console.log('switchFollowedStatus data.data', data)
-                        data.resultCode === 0 ?
-                            dispatch(switchFollowedStatus(id)) :
-                            alert(data.messages)
+                        data.resultCode === 0 ? dispatch(switchFollowedStatus(id)) : alert(data.messages)
+                        dispatch(setIsFollowingPending(id, false))
                     })
             }
         },
@@ -54,7 +53,7 @@ let mapDispatchToProps = (dispatch) => {
             dispatch(action)
         },
         requestSetUsersDatasets: (obj) => {
-            dispatch(setIsLoading(true))
+            dispatch(setIsPageLoading(true))
             console.log(obj)
             getUsersApi(obj.count, obj.page)
                 .then(
@@ -62,7 +61,7 @@ let mapDispatchToProps = (dispatch) => {
                         console.log('Friends', data)
                         dispatch(setUsersDatasets(data.items))
                         dispatch(setTotalNumberOfUsers(data.totalCount))
-                        dispatch(setIsLoading(false))
+                        dispatch(setIsPageLoading(false))
                     })
         }
     }

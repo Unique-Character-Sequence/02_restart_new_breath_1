@@ -27,9 +27,8 @@ const Friends = (props) => {
             setTotalNumberOfUsers={props.setTotalNumberOfUsers}
             requestSetUsersDatasets={props.requestSetUsersDatasets}
         />
-        {props.isLoading ? <Preloader/> :
+        {props.isPageLoading ? <Preloader/> :
             <>
-                <button onClick={() => alert('Теперь это делает useEffect&axios')}>Get Users</button>
                 {doneUsersDatasets}
             </>}
     </div>
