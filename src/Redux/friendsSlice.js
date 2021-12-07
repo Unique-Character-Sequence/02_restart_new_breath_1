@@ -3,24 +3,25 @@ import {switchFollowedStatusAPI} from "../API/samuraijsAPI";
 
 export const switchFollowedStatusThunk = createAsyncThunk(
     'friends/switchFollowedStatusThunk',
-    (args, storeAPI) => {
-        storeAPI.dispatch(setIsFollowingPending(args.id, true))
+    (args, thunkAPI) => {
+        // thunkAPI.dispatch(setIsFollowingPending(args.id, true))
         if (args.followed === true) {
             switchFollowedStatusAPI(args.id, args.followed)
                 .then(data => {
                     console.log('switchFollowedStatus data.data', data)
-                    data.resultCode === 0 ? storeAPI.dispatch(switchFollowedStatus(args.id)) : alert(data.messages)
-                    storeAPI.dispatch(setIsFollowingPending(args.id, false))
+                    data.resultCode === 0 ? thunkAPI.dispatch(switchFollowedStatus(args.id)) : alert(data.messages)
+                    thunkAPI.dispatch(setIsFollowingPending(args.id, false))
                 })
         }
         if (args.followed === false) {
             switchFollowedStatusAPI(args.id, args.followed)
                 .then(data => {
                     console.log('switchFollowedStatus data.data', data)
-                    data.resultCode === 0 ? storeAPI.dispatch(switchFollowedStatus(args.id)) : alert(data.messages)
-                    storeAPI.dispatch(setIsFollowingPending(args.id, false))
+                    data.resultCode === 0 ? thunkAPI.dispatch(switchFollowedStatus(args.id)) : alert(data.messages)
+                    thunkAPI.dispatch(setIsFollowingPending(args.id, false))
                 })
         }
+        return 100
     }
 )
 
@@ -59,6 +60,14 @@ let friendsSlice = createSlice({
                     isFollowingPending: !userDataSet.isFollowingPending
                 } : userDataSet;
             })
+        },
+    },
+    extraReducers: {
+        [switchFollowedStatusThunk.pending]: (state, action) => {
+            debugger
+        },
+        [switchFollowedStatusThunk.fulfilled]: (state, action) => {
+            debugger
         },
     }
 })
