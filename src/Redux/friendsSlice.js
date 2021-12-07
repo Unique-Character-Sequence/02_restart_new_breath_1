@@ -3,25 +3,11 @@ import {switchFollowedStatusAPI} from "../API/samuraijsAPI";
 
 export const switchFollowedStatusThunk = createAsyncThunk(
     'friends/switchFollowedStatusThunk',
-    (args, thunkAPI) => {
-        // thunkAPI.dispatch(setIsFollowingPending(args.id, true))
-        if (args.followed === true) {
-            switchFollowedStatusAPI(args.id, args.followed)
-                .then(data => {
-                    console.log('switchFollowedStatus data.data', data)
-                    data.resultCode === 0 ? thunkAPI.dispatch(switchFollowedStatus(args.id)) : alert(data.messages)
-                    thunkAPI.dispatch(setIsFollowingPending(args.id, false))
-                })
-        }
-        if (args.followed === false) {
-            switchFollowedStatusAPI(args.id, args.followed)
-                .then(data => {
-                    console.log('switchFollowedStatus data.data', data)
-                    data.resultCode === 0 ? thunkAPI.dispatch(switchFollowedStatus(args.id)) : alert(data.messages)
-                    thunkAPI.dispatch(setIsFollowingPending(args.id, false))
-                })
-        }
-        return 100
+    async (args) => {
+        // Без async/await промис не успеет зарезолвиться и вернётся промис, а не объект
+        let data = await switchFollowedStatusAPI(args.id, args.followed)
+        return data
+
     }
 )
 
@@ -53,7 +39,7 @@ let friendsSlice = createSlice({
         setIsPageLoading(state, action) {
             state.isPageLoading = action.payload
         },
-        setIsFollowingPending(state, action) {
+        switchIsFollowingPending(state, action) {
             state.rawUsersDatasets = state.rawUsersDatasets.map(userDataSet => {
                 return userDataSet.id === action.payload ? {
                     ...userDataSet,
@@ -64,10 +50,13 @@ let friendsSlice = createSlice({
     },
     extraReducers: {
         [switchFollowedStatusThunk.pending]: (state, action) => {
-            debugger
+            friendsSlice.caseReducers.switchIsFollowingPending(state, {payload: action.meta.arg.id})
         },
         [switchFollowedStatusThunk.fulfilled]: (state, action) => {
-            debugger
+            friendsSlice.caseReducers.switchIsFollowingPending(state, {payload: action.meta.arg.id})
+            action.payload.resultCode === 0 ?
+                friendsSlice.caseReducers.switchFollowedStatus(state, {payload: action.meta.arg.id}) :
+                alert(action.payload.messages)
         },
     }
 })

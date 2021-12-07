@@ -1,7 +1,7 @@
 import Friends from "../Components/Friends/Friends";
 import {connect} from "react-redux";
 import {
-    setCurrentSetOfUsers,setIsPageLoading,
+    setCurrentSetOfUsers, setIsPageLoading,
     setTotalNumberOfUsers,
     setUsersDatasets,
     switchFollowedStatusThunk
