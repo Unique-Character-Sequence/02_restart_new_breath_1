@@ -1,4 +1,28 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {switchFollowedStatusAPI} from "../API/samuraijsAPI";
+
+export const switchFollowedStatusThunk = createAsyncThunk(
+    'friends/switchFollowedStatusThunk',
+    (args, storeAPI) => {
+        storeAPI.dispatch(setIsFollowingPending(args.id, true))
+        if (args.followed === true) {
+            switchFollowedStatusAPI(args.id, args.followed)
+                .then(data => {
+                    console.log('switchFollowedStatus data.data', data)
+                    data.resultCode === 0 ? storeAPI.dispatch(switchFollowedStatus(args.id)) : alert(data.messages)
+                    storeAPI.dispatch(setIsFollowingPending(args.id, false))
+                })
+        }
+        if (args.followed === false) {
+            switchFollowedStatusAPI(args.id, args.followed)
+                .then(data => {
+                    console.log('switchFollowedStatus data.data', data)
+                    data.resultCode === 0 ? storeAPI.dispatch(switchFollowedStatus(args.id)) : alert(data.messages)
+                    storeAPI.dispatch(setIsFollowingPending(args.id, false))
+                })
+        }
+    }
+)
 
 let friendsSlice = createSlice({
     name: "friends",

@@ -1,12 +1,12 @@
 import Friends from "../Components/Friends/Friends";
 import {connect} from "react-redux";
 import {
-    setCurrentSetOfUsers, setIsFollowingPending, setIsPageLoading,
+    setCurrentSetOfUsers,setIsPageLoading,
     setTotalNumberOfUsers,
     setUsersDatasets,
-    switchFollowedStatus
+    switchFollowedStatusThunk
 } from "../Redux/friendsSlice";
-import {getUsersApi, switchFollowedStatusAPI} from "../API/samuraijsAPI";
+import {getUsersApi} from "../API/samuraijsAPI";
 
 let mapStateToProps = (state) => {
     return {
@@ -21,24 +21,7 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     return {
         switchFollowedStatus: (id, followed) => {
-            //TODO: post request result => then
-            dispatch(setIsFollowingPending(id, true))
-            if (followed === true) {
-                switchFollowedStatusAPI(id, followed)
-                    .then(data => {
-                        console.log('switchFollowedStatus data.data', data)
-                        data.resultCode === 0 ? dispatch(switchFollowedStatus(id)) : alert(data.messages)
-                        dispatch(setIsFollowingPending(id, false))
-                    })
-            }
-            if (followed === false) {
-                switchFollowedStatusAPI(id, followed)
-                    .then(data => {
-                        console.log('switchFollowedStatus data.data', data)
-                        data.resultCode === 0 ? dispatch(switchFollowedStatus(id)) : alert(data.messages)
-                        dispatch(setIsFollowingPending(id, false))
-                    })
-            }
+            dispatch(switchFollowedStatusThunk({id: id, followed: followed}))
         },
         setCurrentSetOfUsers: (currentSetOfUsers) => {
             let action = setCurrentSetOfUsers(currentSetOfUsers)
