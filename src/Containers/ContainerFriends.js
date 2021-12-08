@@ -1,6 +1,7 @@
 import Friends from "../Components/Friends/Friends";
 import {connect} from "react-redux";
 import {
+    requestSetUsersDatasetsThunk,
     setCurrentSetOfUsers, setIsPageLoading,
     setTotalNumberOfUsers,
     setUsersDatasets,
@@ -36,27 +37,10 @@ let mapDispatchToProps = (dispatch) => {
             dispatch(action)
         },
         requestSetUsersDatasets: (obj) => {
-            dispatch(setIsPageLoading(true))
-            console.log(obj)
-            getUsersApi(obj.count, obj.page)
-                .then(
-                    data => {
-                        console.log('Friends', data)
-                        dispatch(setUsersDatasets(data.items))
-                        dispatch(setTotalNumberOfUsers(data.totalCount))
-                        dispatch(setIsPageLoading(false))
-                    })
+            dispatch(requestSetUsersDatasetsThunk(obj))
         }
     }
 }
-
-// let mDTP = {
-//     switchFollowedStatus,
-//     setCurrentSetOfUsers,
-//     setUsersDatasets,
-//     setTotalNumberOfUsers,
-//     requestSetUsersDatasets
-// }
 
 const ContainerFriends = connect(mapStateToProps, mapDispatchToProps)(Friends)
 
