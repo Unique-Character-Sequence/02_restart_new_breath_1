@@ -1,6 +1,7 @@
 import c from './Messages.module.css'
 import ChatList from "./ChatList/ChatList";
 import ContainerChatWindow from "../../Containers/ContainerChatWindow";
+import withRedirectToLoginPage from "../../HOCs/withRedirectToLoginPage";
 
 
 const Messages = (props) => {
@@ -11,4 +12,4 @@ const Messages = (props) => {
     </div>
 }
 
-export default Messages
+export default withRedirectToLoginPage(Messages)
