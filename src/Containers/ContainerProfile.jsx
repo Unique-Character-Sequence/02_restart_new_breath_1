@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import {addPost, setUserProfile, updatePostInput} from "../Redux/profileSlice";
+import {addPost, setUserProfile, setUserProfileThunk, updatePostInput} from "../Redux/profileSlice";
 import Profile from "../Components/Profile/Profile";
 import {getProfileApi} from "../API/samuraijsAPI";
 
@@ -26,12 +26,7 @@ let mapDispatchToProps = (dispatch) => {
         setUserProfile: (id) => {
             if (id !== "") {
                 // FIXME: Когда наш Profile будет приходить с сервера if будет не нужен
-                getProfileApi(id)
-                    .then(data => {
-                            dispatch(setUserProfile(data))
-                            console.log('response.data:', data);
-                        }
-                    )
+                dispatch(setUserProfileThunk(id))
             }
         }
     }

@@ -1,7 +1,16 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {getProfileApi} from "../API/samuraijsAPI";
+
+export const setUserProfileThunk = createAsyncThunk(
+    "profile/setUserProfileThunk",
+    async (arg) => {
+        let data = await getProfileApi(arg)
+        return data
+    }
+)
 
 const profileSlice = createSlice({
-    name: "communities",
+    name: "profile",
     initialState: {
         rawPostDatasets: [
             {post_id: '1', author: 'Абобус Алексеич', likes_amount: '99', text: 'Флексанул конкретно'},
@@ -27,6 +36,14 @@ const profileSlice = createSlice({
         setUserProfile(state, action) {
             state.userProfileDataset = action.payload
         }
+    },
+    extraReducers: {
+        [setUserProfileThunk.fulfilled]: (state, action) => {
+            profileSlice.caseReducers.setUserProfile(state, action)
+        },
+        [setUserProfileThunk.rejected]: (state, action) => {
+            alert('setUserProfileThunk.rejected')
+        },
     }
 })
 
