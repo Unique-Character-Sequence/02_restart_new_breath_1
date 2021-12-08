@@ -9,6 +9,7 @@ import Communities from "./Components/Communities/Communities";
 import ContainerFriends from "./Containers/ContainerFriends";
 import ContainerProfile from "./Containers/ContainerProfile";
 import ContainerHeader from "./Containers/ContainerHeader";
+import Login from "./Components/Login/Login";
 
 const App = (props) => {
     return (<div className="app-wrapper">
@@ -16,6 +17,7 @@ const App = (props) => {
             <Sidebar SidebarDatasets={props.state.SidebarDatasets}/>
             <div className="main-content-area">
                 <Routes>
+                    <Route path='/login' element={<Login/>}/>
                     <Route path='/profile/:id' element={<ContainerProfile/>}/>
                     {/*{<Route path='/profile' element={<ContainerProfile/>}/>}*/}
 

@@ -7,7 +7,6 @@ export const switchFollowedStatusThunk = createAsyncThunk(
         // Без async/await промис не успеет зарезолвиться и вернётся промис, а не объект
         let data = await switchFollowedStatusAPI(args.id, args.followed)
         return data
-
     }
 )
 

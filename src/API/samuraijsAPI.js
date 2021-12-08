@@ -17,3 +17,5 @@ export const getUsersApi = (count, page) => axiosInstance.get(`users?count=${cou
     .then(response => response.data)
 
 export const getProfileApi = (id) => axiosInstance.get(`profile/${id}`).then(response => response.data)
+
+export const getAuthApi = () => axiosInstance.get(`auth/me`).then(response => response.data)

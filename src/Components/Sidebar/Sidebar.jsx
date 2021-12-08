@@ -1,5 +1,6 @@
 import c from './Sidebar.module.css'
 import {NavLink} from "react-router-dom";
+
 let NavLinkAdvanced = (props) => {
     const capitalize = s => s[0].toUpperCase() + s.slice(1);
 

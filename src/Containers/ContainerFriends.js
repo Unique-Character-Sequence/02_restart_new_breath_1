@@ -15,6 +15,7 @@ let mapStateToProps = (state) => {
         totalNumberOfUsers: state.UsersDatasets.totalNumberOfUsers,
         currentSetOfUsers: state.UsersDatasets.currentSetOfUsers,
         isPageLoading: state.UsersDatasets.isPageLoading,
+        isUserLogged: state.AuthData.isUserLogged
     }
 }
 

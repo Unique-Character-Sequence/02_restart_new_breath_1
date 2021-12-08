@@ -3,7 +3,8 @@ import UserTile from "./UserTile/UserTile";
 import {useEffect} from 'react'
 import Paginator from "./Paginator/Paginator";
 import Preloader from "../../Other/Preloader";
-
+import {Navigate} from "react-router";
+import withRedirectToLoginPage from "../../HOCs/withRedirectToLoginPage";
 
 const Friends = (props) => {
     // TODO: Оп
@@ -16,6 +17,8 @@ const Friends = (props) => {
 
     let doneUsersDatasets = props.rawUsersDatasets.map(obj => <UserTile
         switchFollowedStatus={props.switchFollowedStatus} {...obj} />)
+
+    console.log(props.isUserLogged)
 
     return <div className={c.main}>
         <Paginator
@@ -31,7 +34,7 @@ const Friends = (props) => {
                 {doneUsersDatasets}
             </>}
     </div>
-
+    // FIXME: Здесь нас редиректит всегда, ведь изначально мы не считаемся авторизованными
 }
 
-export default Friends
+export default withRedirectToLoginPage(Friends)
