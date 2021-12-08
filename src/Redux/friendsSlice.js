@@ -29,11 +29,9 @@ let friendsSlice = createSlice({
     },
     reducers: {
         switchFollowedStatus(state, action) {
-            state.rawUsersDatasets = state.rawUsersDatasets.map(userDataSet => {
-                if (userDataSet.id === action.payload) {
-                    return {...userDataSet, followed: !userDataSet.followed}
-                } else return userDataSet
-            })
+            for (let  userDataSet of state.rawUsersDatasets) {
+                if (userDataSet.id === action.payload) userDataSet.followed = !userDataSet.followed
+            }
         },
         setUsersDatasets(state, action) {
             // Не action.payload, т.к эта функция получает не сгенерированный RTK, а напрямую отданный
@@ -49,12 +47,9 @@ let friendsSlice = createSlice({
             state.isPageLoading = action
         },
         switchIsFollowingPending(state, action) {
-            state.rawUsersDatasets = state.rawUsersDatasets.map(userDataSet => {
-                return userDataSet.id === action.payload ? {
-                    ...userDataSet,
-                    isFollowingPending: !userDataSet.isFollowingPending
-                } : userDataSet;
-            })
+            for (let userDataSet of state.rawUsersDatasets) {
+                if (userDataSet.id === action.payload) userDataSet.isFollowingPending = !userDataSet.isFollowingPending
+            }
         },
     },
     extraReducers: {
