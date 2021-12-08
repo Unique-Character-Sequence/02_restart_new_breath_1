@@ -1,7 +1,6 @@
 import {connect} from "react-redux";
-import {addPost, setUserProfile, setUserProfileThunk, updatePostInput} from "../Redux/profileSlice";
+import {addPost, setUserProfileThunk, updatePostInput} from "../Redux/profileSlice";
 import Profile from "../Components/Profile/Profile";
-import {getProfileApi} from "../API/samuraijsAPI";
 
 let mapStateToProps = (state) => {
     return {

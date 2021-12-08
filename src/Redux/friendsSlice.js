@@ -29,7 +29,7 @@ let friendsSlice = createSlice({
     },
     reducers: {
         switchFollowedStatus(state, action) {
-            for (let  userDataSet of state.rawUsersDatasets) {
+            for (let userDataSet of state.rawUsersDatasets) {
                 if (userDataSet.id === action.payload) userDataSet.followed = !userDataSet.followed
             }
         },

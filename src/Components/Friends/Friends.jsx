@@ -22,7 +22,6 @@ const Friends = (props) => {
             totalNumber={props.totalNumberOfUsers}
             itemsPerSet={props.itemsPerSet}
             selectedPage={props.currentSetOfUsers}
-            setUsersDatasets={props.setUsersDatasets}
             setCurrentSetOfUsers={props.setCurrentSetOfUsers}
             setTotalNumberOfUsers={props.setTotalNumberOfUsers}
             requestSetUsersDatasets={props.requestSetUsersDatasets}

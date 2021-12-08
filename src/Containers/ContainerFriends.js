@@ -2,12 +2,11 @@ import Friends from "../Components/Friends/Friends";
 import {connect} from "react-redux";
 import {
     requestSetUsersDatasetsThunk,
-    setCurrentSetOfUsers, setIsPageLoading,
+    setCurrentSetOfUsers,
     setTotalNumberOfUsers,
     setUsersDatasets,
     switchFollowedStatusThunk
 } from "../Redux/friendsSlice";
-import {getUsersApi} from "../API/samuraijsAPI";
 
 let mapStateToProps = (state) => {
     return {
