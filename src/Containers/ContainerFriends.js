@@ -8,6 +8,7 @@ import {
     switchFollowedStatusThunk
 } from "../Redux/friendsSlice";
 import {withRedirectToLoginPage} from "../HOCs/withRedirectToLoginPage";
+import {compose} from "redux";
 
 let mapStateToProps = (state) => {
     return {
@@ -42,7 +43,7 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-const ContainerFriends = connect(mapStateToProps, mapDispatchToProps)(withRedirectToLoginPage(Friends))
-
-
-export default ContainerFriends
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withRedirectToLoginPage
+)(Friends)
