@@ -7,6 +7,7 @@ import {
     setUsersDatasets,
     switchFollowedStatusThunk
 } from "../Redux/friendsSlice";
+import {withRedirectToLoginPage} from "../HOCs/withRedirectToLoginPage";
 
 let mapStateToProps = (state) => {
     return {
@@ -14,8 +15,7 @@ let mapStateToProps = (state) => {
         itemsPerSet: state.UsersDatasets.itemsPerSet,
         totalNumberOfUsers: state.UsersDatasets.totalNumberOfUsers,
         currentSetOfUsers: state.UsersDatasets.currentSetOfUsers,
-        isPageLoading: state.UsersDatasets.isPageLoading,
-        isUserLogged: state.AuthData.isUserLogged
+        isPageLoading: state.UsersDatasets.isPageLoading
     }
 }
 
@@ -42,6 +42,7 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-const ContainerFriends = connect(mapStateToProps, mapDispatchToProps)(Friends)
+const ContainerFriends = connect(mapStateToProps, mapDispatchToProps)(withRedirectToLoginPage(Friends))
+
 
 export default ContainerFriends
