@@ -12,7 +12,7 @@ let mapStateToProps = (state) => {
         inputValue: state.ProfilePageDatasets.inputValue,
         rawPostDatasets: state.ProfilePageDatasets.rawPostDatasets,
         userProfileDataset: state.ProfilePageDatasets.userProfileDataset,
-        userId: state.AuthData.userCredentials.id,
+        userCredentials: state.AuthData.userCredentials, //FIXME: Костыль?
         userStatusPromiseState: state.ProfilePageDatasets.userStatusPromiseState,
         isUserStatusInEditMode: state.ProfilePageDatasets.isUserStatusInEditMode,
     }
