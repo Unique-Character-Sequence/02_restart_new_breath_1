@@ -19,9 +19,8 @@ const Profile = (props) => {
         <ProfileInfoTile
             {...props.userProfileDataset}
             isUserStatusInEditMode={props.isUserStatusInEditMode}
-            switchIsUserStatusPending={props.switchIsUserStatusPending}
             switchUserStatusEditMode={props.switchUserStatusEditMode}
-            setUserStatus={props.setUserStatus}
+            userStatusPromiseState={props.userStatusPromiseState}
             updateStatus={props.updateStatus}
         />
         <ProfilePostFeed

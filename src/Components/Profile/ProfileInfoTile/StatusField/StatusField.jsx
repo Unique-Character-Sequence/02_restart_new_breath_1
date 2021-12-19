@@ -9,6 +9,21 @@ const StatusField = (props) => {
         props.switchUserStatusEditMode()
         props.updateStatus(status)
     }
+    const caseUserStatusPromiseState = () => {
+        console.log("props.userStatusPromiseState", props.userStatusPromiseState)
+        switch (props.userStatusPromiseState) {
+            //FIXME: Можно крутилку, галочку, крестик прикрутить
+            case "pending":
+                return "pending"
+            // return <img src="#s" alt="#s"/>
+            case "fulfilled":
+                return "fulfilled"
+            // return <img src="#s" alt="#s"/>
+            case "rejected":
+                return "rejected"
+            // return <img src="#s" alt="#s"/>
+        }
+    }
     return <div className={c.main}>
         {
             props.isUserStatusInEditMode ?
@@ -19,16 +34,9 @@ const StatusField = (props) => {
                     <span onClick={props.switchUserStatusEditMode}>
                         {props.status ? props.status : "Статус не указан"}
                     </span>
-                </div>}
-        {
-            props.isUserStatusPending ?
-                <div>
-                    <img src="#" alt=""/>
-                </div> :
-                <div>
-                    <img src="#" alt=""/>
                 </div>
         }
+        <div>PromiseState: {caseUserStatusPromiseState()}</div>
     </div>
 }
 

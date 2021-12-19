@@ -23,8 +23,7 @@ const ProfileInfoTile = (props) => {
                 updateStatus={props.updateStatus}
                 isUserStatusInEditMode={props.isUserStatusInEditMode}
                 switchUserStatusEditMode={props.switchUserStatusEditMode}
-                switchIsUserStatusPending={props.switchIsUserStatusPending}
-                isUserStatusPending={props.isUserStatusPending}/>
+                userStatusPromiseState={props.userStatusPromiseState}/>
         </div>
         <div>
             JobDesc: {props.lookingForAJobDescription}

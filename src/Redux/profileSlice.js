@@ -48,12 +48,12 @@ const profileSlice = createSlice({
         switchUserStatusEditMode(state) {
             state.isUserStatusInEditMode = !state.isUserStatusInEditMode
         },
-        setUserStatus(state, action) {
+        _setUserStatus(state, action) {
             // console.log("setUserStatus", action.payload)
             state.userProfileDataset.status = action.payload.arg
         },
-        switchIsUserStatusPending(state) {
-            state.isUserStatusPending = !state.isUserStatusPending
+        _setUserStatusPromiseState(state, action) {
+            state.userStatusPromiseState = action
         }
     },
     extraReducers: {
@@ -63,11 +63,15 @@ const profileSlice = createSlice({
         [setUserProfileThunk.rejected]: (state, action) => {
             alert('setUserProfileThunk.rejected')
         },
+        [updateStatusThunk.pending]: (state, action) => {
+            profileSlice.caseReducers._setUserStatusPromiseState(state, "pending")
+        },
         [updateStatusThunk.fulfilled]: (state, action) => {
-            // console.log("updateStatusThunk.fulfilled", action)
-            profileSlice.caseReducers.setUserStatus(state, action)
+            profileSlice.caseReducers._setUserStatusPromiseState(state, "fulfilled")
+            profileSlice.caseReducers._setUserStatus(state, action)
         },
         [updateStatusThunk.rejected]: (state, action) => {
+            profileSlice.caseReducers._setUserStatusPromiseState(state, "rejected")
             alert('setUserStatus.rejected')
         },
     }
@@ -77,8 +81,6 @@ export default profileSlice.reducer
 export const {
     updatePostInput,
     switchIsUserStatusPending,
-    setUserStatus,
     switchUserStatusEditMode,
     addPost,
-    setUserProfile
 } = profileSlice.actions
