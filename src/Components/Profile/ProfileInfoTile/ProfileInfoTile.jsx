@@ -1,5 +1,6 @@
 import c from "../Profile.module.css";
 import defaultImage from "./no_image_available.png"
+import StatusField from "./StatusField/StatusField";
 
 
 const ProfileInfoTile = (props) => {
@@ -10,9 +11,6 @@ const ProfileInfoTile = (props) => {
     }
 
     return <div>
-        {/*<div>*/}
-        {/*    <img className={c.banner} src={props.banner} alt=""/>*/}
-        {/*</div>*/}
         <div>
             <img className={c.pfp} src={availableProfilePhoto()} alt=""/>
         </div>
@@ -20,8 +18,15 @@ const ProfileInfoTile = (props) => {
             {props.fullName}
         </div>
         <div>
-            Status: {props.aboutMe}
-            <br/>
+            <StatusField
+                status={props.status}
+                updateStatus={props.updateStatus}
+                isUserStatusInEditMode={props.isUserStatusInEditMode}
+                switchUserStatusEditMode={props.switchUserStatusEditMode}
+                switchIsUserStatusPending={props.switchIsUserStatusPending}
+                isUserStatusPending={props.isUserStatusPending}/>
+        </div>
+        <div>
             JobDesc: {props.lookingForAJobDescription}
         </div>
         <div>

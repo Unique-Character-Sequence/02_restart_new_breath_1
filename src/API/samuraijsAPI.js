@@ -16,6 +16,14 @@ export const switchFollowedStatusAPI = (id, followedStatus) => {
 export const getUsersApi = (count, page) => axiosInstance.get(`users?count=${count}&page=${page}`)
     .then(response => response.data)
 
-export const getProfileApi = (id) => axiosInstance.get(`profile/${id}`).then(response => response.data)
+export const getProfileApi = (id) => axiosInstance.get(`profile/${id}`)
+    .then(response => response.data)
 
-export const getAuthApi = () => axiosInstance.get(`auth/me`).then(response => response.data)
+export const getStatusApi = (id) => axiosInstance.get(`profile/status/${id}`)
+    .then(response => response.data)
+
+export const updateStatusApi = (status) => axiosInstance.put(`profile/status`, {status: status})
+    .then(response => response.data)
+
+export const getAuthApi = () => axiosInstance.get(`auth/me`)
+    .then(response => response.data)

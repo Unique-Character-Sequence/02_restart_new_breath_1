@@ -19,7 +19,7 @@ const App = (props) => {
                 <Routes>
                     <Route path='/login' element={<Login/>}/>
                     <Route path='/profile/:id' element={<ContainerProfile/>}/>
-                    {/*{<Route path='/profile' element={<ContainerProfile/>}/>}*/}
+                    <Route path='/profile' element={<ContainerProfile/>}/>
 
                     {/*FIXME: Надо настроить так, чтобы id брался из authData, а если нету, то id='5'*/}
                     {/*FIXME: Либо дальше зайти и не показывать вообще то, что неавторизованному не доступно*/}

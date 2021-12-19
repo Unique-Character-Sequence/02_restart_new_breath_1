@@ -11,11 +11,18 @@ const Profile = (props) => {
         console.log('componentDidMount')
         if (idFromUrl) {
             props.setUserProfile(idFromUrl)
-        }
+        } else props.setUserProfile(props.userId)
+        //FIXME: Данные читаются до того, как придёт ответ от сервера
     }, [])
 
     return <div className={classes.main}>
-        <ProfileInfoTile {...props.userProfileDataset}
+        <ProfileInfoTile
+            {...props.userProfileDataset}
+            isUserStatusInEditMode={props.isUserStatusInEditMode}
+            switchIsUserStatusPending={props.switchIsUserStatusPending}
+            switchUserStatusEditMode={props.switchUserStatusEditMode}
+            setUserStatus={props.setUserStatus}
+            updateStatus={props.updateStatus}
         />
         <ProfilePostFeed
             rawPostDatasets={props.rawPostDatasets}
